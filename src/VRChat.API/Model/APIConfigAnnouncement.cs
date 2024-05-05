@@ -34,26 +34,11 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigAnnouncement" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected APIConfigAnnouncement() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="APIConfigAnnouncement" /> class.
-        /// </summary>
-        /// <param name="name">Announcement name (required).</param>
-        /// <param name="text">Announcement text (required).</param>
+        /// <param name="name">Announcement name.</param>
+        /// <param name="text">Announcement text.</param>
         public APIConfigAnnouncement(string name = default(string), string text = default(string))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for APIConfigAnnouncement and cannot be null");
-            }
             this.Name = name;
-            // to ensure "text" is required (not null)
-            if (text == null)
-            {
-                throw new ArgumentNullException("text is a required property for APIConfigAnnouncement and cannot be null");
-            }
             this.Text = text;
         }
 
@@ -61,14 +46,14 @@ namespace VRChat.API.Model
         /// Announcement name
         /// </summary>
         /// <value>Announcement name</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Announcement text
         /// </summary>
         /// <value>Announcement text</value>
-        [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "text", EmitDefaultValue = false)]
         public string Text { get; set; }
 
         /// <summary>

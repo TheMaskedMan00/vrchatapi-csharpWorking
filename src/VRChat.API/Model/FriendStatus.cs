@@ -34,14 +34,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FriendStatus" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FriendStatus() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FriendStatus" /> class.
-        /// </summary>
-        /// <param name="incomingRequest">incomingRequest (required) (default to false).</param>
-        /// <param name="isFriend">isFriend (required) (default to false).</param>
-        /// <param name="outgoingRequest">outgoingRequest (required) (default to false).</param>
+        /// <param name="incomingRequest">incomingRequest (default to false).</param>
+        /// <param name="isFriend">isFriend (default to false).</param>
+        /// <param name="outgoingRequest">outgoingRequest (default to false).</param>
         public FriendStatus(bool incomingRequest = false, bool isFriend = false, bool outgoingRequest = false)
         {
             this.IncomingRequest = incomingRequest;
@@ -52,19 +47,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets IncomingRequest
         /// </summary>
-        [DataMember(Name = "incomingRequest", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "incomingRequest", EmitDefaultValue = true)]
         public bool IncomingRequest { get; set; }
 
         /// <summary>
         /// Gets or Sets IsFriend
         /// </summary>
-        [DataMember(Name = "isFriend", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isFriend", EmitDefaultValue = true)]
         public bool IsFriend { get; set; }
 
         /// <summary>
         /// Gets or Sets OutgoingRequest
         /// </summary>
-        [DataMember(Name = "outgoingRequest", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "outgoingRequest", EmitDefaultValue = true)]
         public bool OutgoingRequest { get; set; }
 
         /// <summary>

@@ -34,82 +34,52 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionSteamInfo" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TransactionSteamInfo() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionSteamInfo" /> class.
-        /// </summary>
-        /// <param name="walletInfo">walletInfo (required).</param>
-        /// <param name="steamId">Steam User ID (required).</param>
-        /// <param name="orderId">Steam Order ID (required).</param>
-        /// <param name="steamUrl">Empty (required).</param>
-        /// <param name="transId">Steam Transaction ID, NOT the same as VRChat TransactionID (required).</param>
+        /// <param name="walletInfo">walletInfo.</param>
+        /// <param name="steamId">Steam User ID.</param>
+        /// <param name="orderId">Steam Order ID.</param>
+        /// <param name="steamUrl">Empty.</param>
+        /// <param name="transId">Steam Transaction ID, NOT the same as VRChat TransactionID.</param>
         public TransactionSteamInfo(TransactionSteamWalletInfo walletInfo = default(TransactionSteamWalletInfo), string steamId = default(string), string orderId = default(string), string steamUrl = default(string), string transId = default(string))
         {
-            // to ensure "walletInfo" is required (not null)
-            if (walletInfo == null)
-            {
-                throw new ArgumentNullException("walletInfo is a required property for TransactionSteamInfo and cannot be null");
-            }
             this.WalletInfo = walletInfo;
-            // to ensure "steamId" is required (not null)
-            if (steamId == null)
-            {
-                throw new ArgumentNullException("steamId is a required property for TransactionSteamInfo and cannot be null");
-            }
             this.SteamId = steamId;
-            // to ensure "orderId" is required (not null)
-            if (orderId == null)
-            {
-                throw new ArgumentNullException("orderId is a required property for TransactionSteamInfo and cannot be null");
-            }
             this.OrderId = orderId;
-            // to ensure "steamUrl" is required (not null)
-            if (steamUrl == null)
-            {
-                throw new ArgumentNullException("steamUrl is a required property for TransactionSteamInfo and cannot be null");
-            }
             this.SteamUrl = steamUrl;
-            // to ensure "transId" is required (not null)
-            if (transId == null)
-            {
-                throw new ArgumentNullException("transId is a required property for TransactionSteamInfo and cannot be null");
-            }
             this.TransId = transId;
         }
 
         /// <summary>
         /// Gets or Sets WalletInfo
         /// </summary>
-        [DataMember(Name = "walletInfo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "walletInfo", EmitDefaultValue = false)]
         public TransactionSteamWalletInfo WalletInfo { get; set; }
 
         /// <summary>
         /// Steam User ID
         /// </summary>
         /// <value>Steam User ID</value>
-        [DataMember(Name = "steamId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "steamId", EmitDefaultValue = false)]
         public string SteamId { get; set; }
 
         /// <summary>
         /// Steam Order ID
         /// </summary>
         /// <value>Steam Order ID</value>
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderId", EmitDefaultValue = false)]
         public string OrderId { get; set; }
 
         /// <summary>
         /// Empty
         /// </summary>
         /// <value>Empty</value>
-        [DataMember(Name = "steamUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "steamUrl", EmitDefaultValue = false)]
         public string SteamUrl { get; set; }
 
         /// <summary>
         /// Steam Transaction ID, NOT the same as VRChat TransactionID
         /// </summary>
         /// <value>Steam Transaction ID, NOT the same as VRChat TransactionID</value>
-        [DataMember(Name = "transId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "transId", EmitDefaultValue = false)]
         public string TransId { get; set; }
 
         /// <summary>

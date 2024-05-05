@@ -35,40 +35,25 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ForType
         /// </summary>
-        [DataMember(Name = "forType", IsRequired = true, EmitDefaultValue = true)]
-        public LicenseType ForType { get; set; }
+        [DataMember(Name = "forType", EmitDefaultValue = false)]
+        public LicenseType? ForType { get; set; }
 
         /// <summary>
         /// Gets or Sets ForAction
         /// </summary>
-        [DataMember(Name = "forAction", IsRequired = true, EmitDefaultValue = true)]
-        public LicenseAction ForAction { get; set; }
+        [DataMember(Name = "forAction", EmitDefaultValue = false)]
+        public LicenseAction? ForAction { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="License" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected License() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="License" /> class.
-        /// </summary>
-        /// <param name="forId">Either a AvatarID, LicenseGroupID, PermissionID or ProductID. This depends on the &#x60;forType&#x60; field. (required).</param>
-        /// <param name="forType">forType (required).</param>
-        /// <param name="forName">forName (required).</param>
-        /// <param name="forAction">forAction (required).</param>
-        public License(string forId = default(string), LicenseType forType = default(LicenseType), string forName = default(string), LicenseAction forAction = default(LicenseAction))
+        /// <param name="forId">Either a AvatarID, LicenseGroupID, PermissionID or ProductID. This depends on the &#x60;forType&#x60; field..</param>
+        /// <param name="forType">forType.</param>
+        /// <param name="forName">forName.</param>
+        /// <param name="forAction">forAction.</param>
+        public License(string forId = default(string), LicenseType? forType = default(LicenseType?), string forName = default(string), LicenseAction? forAction = default(LicenseAction?))
         {
-            // to ensure "forId" is required (not null)
-            if (forId == null)
-            {
-                throw new ArgumentNullException("forId is a required property for License and cannot be null");
-            }
             this.ForId = forId;
             this.ForType = forType;
-            // to ensure "forName" is required (not null)
-            if (forName == null)
-            {
-                throw new ArgumentNullException("forName is a required property for License and cannot be null");
-            }
             this.ForName = forName;
             this.ForAction = forAction;
         }
@@ -77,13 +62,13 @@ namespace VRChat.API.Model
         /// Either a AvatarID, LicenseGroupID, PermissionID or ProductID. This depends on the &#x60;forType&#x60; field.
         /// </summary>
         /// <value>Either a AvatarID, LicenseGroupID, PermissionID or ProductID. This depends on the &#x60;forType&#x60; field.</value>
-        [DataMember(Name = "forId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "forId", EmitDefaultValue = false)]
         public string ForId { get; set; }
 
         /// <summary>
         /// Gets or Sets ForName
         /// </summary>
-        [DataMember(Name = "forName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "forName", EmitDefaultValue = false)]
         public string ForName { get; set; }
 
         /// <summary>

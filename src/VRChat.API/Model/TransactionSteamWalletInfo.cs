@@ -34,65 +34,42 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionSteamWalletInfo" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TransactionSteamWalletInfo() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionSteamWalletInfo" /> class.
-        /// </summary>
-        /// <param name="state">state (required).</param>
-        /// <param name="country">country (required) (default to &quot;US&quot;).</param>
-        /// <param name="currency">currency (required) (default to &quot;USD&quot;).</param>
-        /// <param name="status">status (required).</param>
+        /// <param name="state">state.</param>
+        /// <param name="country">country (default to &quot;US&quot;).</param>
+        /// <param name="currency">currency (default to &quot;USD&quot;).</param>
+        /// <param name="status">status.</param>
         public TransactionSteamWalletInfo(string state = default(string), string country = "US", string currency = "USD", string status = default(string))
         {
-            // to ensure "state" is required (not null)
-            if (state == null)
-            {
-                throw new ArgumentNullException("state is a required property for TransactionSteamWalletInfo and cannot be null");
-            }
             this.State = state;
-            // to ensure "country" is required (not null)
-            if (country == null)
-            {
-                throw new ArgumentNullException("country is a required property for TransactionSteamWalletInfo and cannot be null");
-            }
-            this.Country = country;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for TransactionSteamWalletInfo and cannot be null");
-            }
-            this.Currency = currency;
-            // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new ArgumentNullException("status is a required property for TransactionSteamWalletInfo and cannot be null");
-            }
+            // use default value if no "country" provided
+            this.Country = country ?? "US";
+            // use default value if no "currency" provided
+            this.Currency = currency ?? "USD";
             this.Status = status;
         }
 
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
         /// <summary>
         /// Gets or Sets Country
         /// </summary>
-        [DataMember(Name = "country", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "country", EmitDefaultValue = false)]
         public string Country { get; set; }
 
         /// <summary>
         /// Gets or Sets Currency
         /// </summary>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public string Status { get; set; }
 
         /// <summary>

@@ -34,52 +34,22 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DynamicContentRow" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DynamicContentRow() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DynamicContentRow" /> class.
-        /// </summary>
         /// <param name="index">index.</param>
-        /// <param name="name">name (required).</param>
-        /// <param name="platform">Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers. (required).</param>
-        /// <param name="sortHeading">sortHeading (required).</param>
-        /// <param name="sortOrder">sortOrder (required).</param>
-        /// <param name="sortOwnership">sortOwnership (required).</param>
+        /// <param name="name">name.</param>
+        /// <param name="platform">Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers..</param>
+        /// <param name="sortHeading">sortHeading.</param>
+        /// <param name="sortOrder">sortOrder.</param>
+        /// <param name="sortOwnership">sortOwnership.</param>
         /// <param name="tag">Tag to filter content for this row..</param>
         /// <param name="type">Type is not present if it is a world..</param>
         public DynamicContentRow(int index = default(int), string name = default(string), string platform = default(string), string sortHeading = default(string), string sortOrder = default(string), string sortOwnership = default(string), string tag = default(string), string type = default(string))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for DynamicContentRow and cannot be null");
-            }
-            this.Name = name;
-            // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
-                throw new ArgumentNullException("platform is a required property for DynamicContentRow and cannot be null");
-            }
-            this.Platform = platform;
-            // to ensure "sortHeading" is required (not null)
-            if (sortHeading == null)
-            {
-                throw new ArgumentNullException("sortHeading is a required property for DynamicContentRow and cannot be null");
-            }
-            this.SortHeading = sortHeading;
-            // to ensure "sortOrder" is required (not null)
-            if (sortOrder == null)
-            {
-                throw new ArgumentNullException("sortOrder is a required property for DynamicContentRow and cannot be null");
-            }
-            this.SortOrder = sortOrder;
-            // to ensure "sortOwnership" is required (not null)
-            if (sortOwnership == null)
-            {
-                throw new ArgumentNullException("sortOwnership is a required property for DynamicContentRow and cannot be null");
-            }
-            this.SortOwnership = sortOwnership;
             this.Index = index;
+            this.Name = name;
+            this.Platform = platform;
+            this.SortHeading = sortHeading;
+            this.SortOrder = sortOrder;
+            this.SortOwnership = sortOwnership;
             this.Tag = tag;
             this.Type = type;
         }
@@ -93,32 +63,32 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers.
         /// </summary>
         /// <value>Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers.</value>
-        [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
         /// <summary>
         /// Gets or Sets SortHeading
         /// </summary>
-        [DataMember(Name = "sortHeading", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sortHeading", EmitDefaultValue = false)]
         public string SortHeading { get; set; }
 
         /// <summary>
         /// Gets or Sets SortOrder
         /// </summary>
-        [DataMember(Name = "sortOrder", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sortOrder", EmitDefaultValue = false)]
         public string SortOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets SortOwnership
         /// </summary>
-        [DataMember(Name = "sortOwnership", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sortOwnership", EmitDefaultValue = false)]
         public string SortOwnership { get; set; }
 
         /// <summary>

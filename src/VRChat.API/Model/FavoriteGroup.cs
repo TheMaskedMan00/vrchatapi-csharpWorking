@@ -35,67 +35,32 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public FavoriteType Type { get; set; }
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public FavoriteType? Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Visibility
         /// </summary>
-        [DataMember(Name = "visibility", IsRequired = true, EmitDefaultValue = true)]
-        public FavoriteGroupVisibility Visibility { get; set; }
+        [DataMember(Name = "visibility", EmitDefaultValue = false)]
+        public FavoriteGroupVisibility? Visibility { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FavoriteGroup" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FavoriteGroup() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FavoriteGroup" /> class.
-        /// </summary>
-        /// <param name="displayName">displayName (required).</param>
-        /// <param name="id">id (required).</param>
-        /// <param name="name">name (required).</param>
-        /// <param name="ownerDisplayName">ownerDisplayName (required).</param>
-        /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="tags">  (required).</param>
-        /// <param name="type">type (required).</param>
-        /// <param name="visibility">visibility (required).</param>
-        public FavoriteGroup(string displayName = default(string), string id = default(string), string name = default(string), string ownerDisplayName = default(string), string ownerId = default(string), List<string> tags = default(List<string>), FavoriteType type = default(FavoriteType), FavoriteGroupVisibility visibility = default(FavoriteGroupVisibility))
+        /// <param name="displayName">displayName.</param>
+        /// <param name="id">id.</param>
+        /// <param name="name">name.</param>
+        /// <param name="ownerDisplayName">ownerDisplayName.</param>
+        /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="tags"> .</param>
+        /// <param name="type">type.</param>
+        /// <param name="visibility">visibility.</param>
+        public FavoriteGroup(string displayName = default(string), string id = default(string), string name = default(string), string ownerDisplayName = default(string), string ownerId = default(string), List<string> tags = default(List<string>), FavoriteType? type = default(FavoriteType?), FavoriteGroupVisibility? visibility = default(FavoriteGroupVisibility?))
         {
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for FavoriteGroup and cannot be null");
-            }
             this.DisplayName = displayName;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for FavoriteGroup and cannot be null");
-            }
             this.Id = id;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for FavoriteGroup and cannot be null");
-            }
             this.Name = name;
-            // to ensure "ownerDisplayName" is required (not null)
-            if (ownerDisplayName == null)
-            {
-                throw new ArgumentNullException("ownerDisplayName is a required property for FavoriteGroup and cannot be null");
-            }
             this.OwnerDisplayName = ownerDisplayName;
-            // to ensure "ownerId" is required (not null)
-            if (ownerId == null)
-            {
-                throw new ArgumentNullException("ownerId is a required property for FavoriteGroup and cannot be null");
-            }
             this.OwnerId = ownerId;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for FavoriteGroup and cannot be null");
-            }
             this.Tags = tags;
             this.Type = type;
             this.Visibility = visibility;
@@ -104,39 +69,39 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets OwnerDisplayName
         /// </summary>
-        [DataMember(Name = "ownerDisplayName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ownerDisplayName", EmitDefaultValue = false)]
         public string OwnerDisplayName { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "ownerId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public string OwnerId { get; set; }
 
         /// <summary>
         ///  
         /// </summary>
         /// <value> </value>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>

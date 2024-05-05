@@ -34,20 +34,10 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationDetailRequestInviteResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected NotificationDetailRequestInviteResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationDetailRequestInviteResponse" /> class.
-        /// </summary>
-        /// <param name="inResponseTo">inResponseTo (required).</param>
+        /// <param name="inResponseTo">inResponseTo.</param>
         /// <param name="requestMessage">Used when using InviteMessage Slot..</param>
         public NotificationDetailRequestInviteResponse(string inResponseTo = default(string), string requestMessage = default(string))
         {
-            // to ensure "inResponseTo" is required (not null)
-            if (inResponseTo == null)
-            {
-                throw new ArgumentNullException("inResponseTo is a required property for NotificationDetailRequestInviteResponse and cannot be null");
-            }
             this.InResponseTo = inResponseTo;
             this.RequestMessage = requestMessage;
         }
@@ -55,7 +45,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets InResponseTo
         /// </summary>
-        [DataMember(Name = "inResponseTo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "inResponseTo", EmitDefaultValue = false)]
         public string InResponseTo { get; set; }
 
         /// <summary>

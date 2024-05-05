@@ -35,55 +35,25 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public PlayerModerationType Type { get; set; }
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public PlayerModerationType? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerModeration" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PlayerModeration() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PlayerModeration" /> class.
-        /// </summary>
-        /// <param name="created">created (required).</param>
-        /// <param name="id">id (required).</param>
-        /// <param name="sourceDisplayName">sourceDisplayName (required).</param>
-        /// <param name="sourceUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="targetDisplayName">targetDisplayName (required).</param>
-        /// <param name="targetUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="type">type (required).</param>
-        public PlayerModeration(DateTime created = default(DateTime), string id = default(string), string sourceDisplayName = default(string), string sourceUserId = default(string), string targetDisplayName = default(string), string targetUserId = default(string), PlayerModerationType type = default(PlayerModerationType))
+        /// <param name="created">created.</param>
+        /// <param name="id">id.</param>
+        /// <param name="sourceDisplayName">sourceDisplayName.</param>
+        /// <param name="sourceUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="targetDisplayName">targetDisplayName.</param>
+        /// <param name="targetUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="type">type.</param>
+        public PlayerModeration(DateTime created = default(DateTime), string id = default(string), string sourceDisplayName = default(string), string sourceUserId = default(string), string targetDisplayName = default(string), string targetUserId = default(string), PlayerModerationType? type = default(PlayerModerationType?))
         {
             this.Created = created;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for PlayerModeration and cannot be null");
-            }
             this.Id = id;
-            // to ensure "sourceDisplayName" is required (not null)
-            if (sourceDisplayName == null)
-            {
-                throw new ArgumentNullException("sourceDisplayName is a required property for PlayerModeration and cannot be null");
-            }
             this.SourceDisplayName = sourceDisplayName;
-            // to ensure "sourceUserId" is required (not null)
-            if (sourceUserId == null)
-            {
-                throw new ArgumentNullException("sourceUserId is a required property for PlayerModeration and cannot be null");
-            }
             this.SourceUserId = sourceUserId;
-            // to ensure "targetDisplayName" is required (not null)
-            if (targetDisplayName == null)
-            {
-                throw new ArgumentNullException("targetDisplayName is a required property for PlayerModeration and cannot be null");
-            }
             this.TargetDisplayName = targetDisplayName;
-            // to ensure "targetUserId" is required (not null)
-            if (targetUserId == null)
-            {
-                throw new ArgumentNullException("targetUserId is a required property for PlayerModeration and cannot be null");
-            }
             this.TargetUserId = targetUserId;
             this.Type = type;
         }
@@ -91,39 +61,39 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "created", EmitDefaultValue = false)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets SourceDisplayName
         /// </summary>
-        [DataMember(Name = "sourceDisplayName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sourceDisplayName", EmitDefaultValue = false)]
         public string SourceDisplayName { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "sourceUserId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sourceUserId", EmitDefaultValue = false)]
         public string SourceUserId { get; set; }
 
         /// <summary>
         /// Gets or Sets TargetDisplayName
         /// </summary>
-        [DataMember(Name = "targetDisplayName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "targetDisplayName", EmitDefaultValue = false)]
         public string TargetDisplayName { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "targetUserId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "targetUserId", EmitDefaultValue = false)]
         public string TargetUserId { get; set; }
 
         /// <summary>

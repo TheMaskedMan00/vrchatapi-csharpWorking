@@ -34,34 +34,14 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupInstance" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected GroupInstance() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GroupInstance" /> class.
-        /// </summary>
-        /// <param name="instanceId">instanceId (required).</param>
-        /// <param name="location">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. (required).</param>
-        /// <param name="world">world (required).</param>
-        /// <param name="memberCount">memberCount (required).</param>
+        /// <param name="instanceId">instanceId.</param>
+        /// <param name="location">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance..</param>
+        /// <param name="world">world.</param>
+        /// <param name="memberCount">memberCount.</param>
         public GroupInstance(string instanceId = default(string), string location = default(string), World world = default(World), int memberCount = default(int))
         {
-            // to ensure "instanceId" is required (not null)
-            if (instanceId == null)
-            {
-                throw new ArgumentNullException("instanceId is a required property for GroupInstance and cannot be null");
-            }
             this.InstanceId = instanceId;
-            // to ensure "location" is required (not null)
-            if (location == null)
-            {
-                throw new ArgumentNullException("location is a required property for GroupInstance and cannot be null");
-            }
             this.Location = location;
-            // to ensure "world" is required (not null)
-            if (world == null)
-            {
-                throw new ArgumentNullException("world is a required property for GroupInstance and cannot be null");
-            }
             this.World = world;
             this.MemberCount = memberCount;
         }
@@ -69,26 +49,26 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets InstanceId
         /// </summary>
-        [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "instanceId", EmitDefaultValue = false)]
         public string InstanceId { get; set; }
 
         /// <summary>
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
-        [DataMember(Name = "location", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "location", EmitDefaultValue = false)]
         public string Location { get; set; }
 
         /// <summary>
         /// Gets or Sets World
         /// </summary>
-        [DataMember(Name = "world", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "world", EmitDefaultValue = false)]
         public World World { get; set; }
 
         /// <summary>
         /// Gets or Sets MemberCount
         /// </summary>
-        [DataMember(Name = "memberCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "memberCount", EmitDefaultValue = false)]
         public int MemberCount { get; set; }
 
         /// <summary>

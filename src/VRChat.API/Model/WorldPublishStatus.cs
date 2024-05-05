@@ -34,12 +34,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WorldPublishStatus" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected WorldPublishStatus() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="WorldPublishStatus" /> class.
-        /// </summary>
-        /// <param name="canPublish">canPublish (required) (default to true).</param>
+        /// <param name="canPublish">canPublish (default to true).</param>
         public WorldPublishStatus(bool canPublish = true)
         {
             this.CanPublish = canPublish;
@@ -48,7 +43,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CanPublish
         /// </summary>
-        [DataMember(Name = "canPublish", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "canPublish", EmitDefaultValue = true)]
         public bool CanPublish { get; set; }
 
         /// <summary>

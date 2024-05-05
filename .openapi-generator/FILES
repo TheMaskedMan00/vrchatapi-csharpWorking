@@ -101,6 +101,7 @@ docs/NotificationDetailInviteResponse.md
 docs/NotificationDetailRequestInvite.md
 docs/NotificationDetailRequestInviteResponse.md
 docs/NotificationDetailVoteToKick.md
+docs/NotificationDetails.md
 docs/NotificationType.md
 docs/NotificationsApi.md
 docs/OrderOption.md
@@ -278,6 +279,7 @@ src/VRChat.API/Model/NotificationDetailInviteResponse.cs
 src/VRChat.API/Model/NotificationDetailRequestInvite.cs
 src/VRChat.API/Model/NotificationDetailRequestInviteResponse.cs
 src/VRChat.API/Model/NotificationDetailVoteToKick.cs
+src/VRChat.API/Model/NotificationDetails.cs
 src/VRChat.API/Model/NotificationType.cs
 src/VRChat.API/Model/OrderOption.cs
 src/VRChat.API/Model/PaginatedGroupAuditLogEntryList.cs

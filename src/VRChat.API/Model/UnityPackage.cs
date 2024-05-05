@@ -34,51 +34,32 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnityPackage" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UnityPackage() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UnityPackage" /> class.
-        /// </summary>
-        /// <param name="id">id (required).</param>
+        /// <param name="id">id.</param>
         /// <param name="assetUrl">assetUrl.</param>
         /// <param name="assetUrlObject">assetUrlObject.</param>
-        /// <param name="assetVersion">assetVersion (required).</param>
+        /// <param name="assetVersion">assetVersion.</param>
         /// <param name="createdAt">createdAt.</param>
-        /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
+        /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
         /// <param name="pluginUrl">pluginUrl.</param>
         /// <param name="pluginUrlObject">pluginUrlObject.</param>
         /// <param name="unitySortNumber">unitySortNumber.</param>
-        /// <param name="unityVersion">unityVersion (required) (default to &quot;5.3.4p1&quot;).</param>
+        /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
         /// <param name="impostorUrl">impostorUrl.</param>
         /// <param name="scanStatus">scanStatus.</param>
         /// <param name="variant">variant.</param>
         public UnityPackage(string id = default(string), string assetUrl = default(string), Object assetUrlObject = default(Object), int assetVersion = default(int), DateTime createdAt = default(DateTime), string platform = default(string), string pluginUrl = default(string), Object pluginUrlObject = default(Object), long unitySortNumber = default(long), string unityVersion = "5.3.4p1", string impostorUrl = default(string), string scanStatus = default(string), string variant = default(string))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for UnityPackage and cannot be null");
-            }
             this.Id = id;
-            this.AssetVersion = assetVersion;
-            // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
-                throw new ArgumentNullException("platform is a required property for UnityPackage and cannot be null");
-            }
-            this.Platform = platform;
-            // to ensure "unityVersion" is required (not null)
-            if (unityVersion == null)
-            {
-                throw new ArgumentNullException("unityVersion is a required property for UnityPackage and cannot be null");
-            }
-            this.UnityVersion = unityVersion;
             this.AssetUrl = assetUrl;
             this.AssetUrlObject = assetUrlObject;
+            this.AssetVersion = assetVersion;
             this.CreatedAt = createdAt;
+            this.Platform = platform;
             this.PluginUrl = pluginUrl;
             this.PluginUrlObject = pluginUrlObject;
             this.UnitySortNumber = unitySortNumber;
+            // use default value if no "unityVersion" provided
+            this.UnityVersion = unityVersion ?? "5.3.4p1";
             this.ImpostorUrl = impostorUrl;
             this.ScanStatus = scanStatus;
             this.Variant = variant;
@@ -87,7 +68,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
@@ -105,7 +86,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AssetVersion
         /// </summary>
-        [DataMember(Name = "assetVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "assetVersion", EmitDefaultValue = false)]
         public int AssetVersion { get; set; }
 
         /// <summary>
@@ -118,7 +99,7 @@ namespace VRChat.API.Model
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
         /// <summary>
@@ -142,7 +123,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UnityVersion
         /// </summary>
-        [DataMember(Name = "unityVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "unityVersion", EmitDefaultValue = false)]
         public string UnityVersion { get; set; }
 
         /// <summary>

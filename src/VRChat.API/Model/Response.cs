@@ -34,17 +34,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Response" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Response() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Response" /> class.
-        /// </summary>
         /// <param name="message">message.</param>
-        /// <param name="statusCode">statusCode (required).</param>
+        /// <param name="statusCode">statusCode.</param>
         public Response(string message = default(string), int statusCode = default(int))
         {
-            this.StatusCode = statusCode;
             this.Message = message;
+            this.StatusCode = statusCode;
         }
 
         /// <summary>
@@ -56,7 +51,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets StatusCode
         /// </summary>
-        [DataMember(Name = "status_code", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status_code", EmitDefaultValue = false)]
         public int StatusCode { get; set; }
 
         /// <summary>

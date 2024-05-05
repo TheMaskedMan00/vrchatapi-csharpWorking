@@ -34,34 +34,24 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VerifyAuthTokenResult" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected VerifyAuthTokenResult() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VerifyAuthTokenResult" /> class.
-        /// </summary>
-        /// <param name="ok">ok (required).</param>
-        /// <param name="token">token (required).</param>
+        /// <param name="ok">ok.</param>
+        /// <param name="token">token.</param>
         public VerifyAuthTokenResult(bool ok = default(bool), string token = default(string))
         {
             this.Ok = ok;
-            // to ensure "token" is required (not null)
-            if (token == null)
-            {
-                throw new ArgumentNullException("token is a required property for VerifyAuthTokenResult and cannot be null");
-            }
             this.Token = token;
         }
 
         /// <summary>
         /// Gets or Sets Ok
         /// </summary>
-        [DataMember(Name = "ok", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ok", EmitDefaultValue = true)]
         public bool Ok { get; set; }
 
         /// <summary>
         /// Gets or Sets Token
         /// </summary>
-        [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "token", EmitDefaultValue = false)]
         public string Token { get; set; }
 
         /// <summary>

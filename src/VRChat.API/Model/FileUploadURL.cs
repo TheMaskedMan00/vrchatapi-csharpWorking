@@ -34,26 +34,16 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileUploadURL" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FileUploadURL() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileUploadURL" /> class.
-        /// </summary>
-        /// <param name="url">url (required).</param>
+        /// <param name="url">url.</param>
         public FileUploadURL(string url = default(string))
         {
-            // to ensure "url" is required (not null)
-            if (url == null)
-            {
-                throw new ArgumentNullException("url is a required property for FileUploadURL and cannot be null");
-            }
             this.Url = url;
         }
 
         /// <summary>
         /// Gets or Sets Url
         /// </summary>
-        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url { get; set; }
 
         /// <summary>

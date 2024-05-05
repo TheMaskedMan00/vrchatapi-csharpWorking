@@ -35,109 +35,49 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ReleaseStatus
         /// </summary>
-        [DataMember(Name = "releaseStatus", IsRequired = true, EmitDefaultValue = true)]
-        public ReleaseStatus ReleaseStatus { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Avatar" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected Avatar() { }
+        [DataMember(Name = "releaseStatus", EmitDefaultValue = false)]
+        public ReleaseStatus? ReleaseStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Avatar" /> class.
         /// </summary>
         /// <param name="assetUrl">Not present from general serach &#x60;/avatars&#x60;, only on specific requests &#x60;/avatars/{avatarId}&#x60;..</param>
         /// <param name="assetUrlObject">Not present from general serach &#x60;/avatars&#x60;, only on specific requests &#x60;/avatars/{avatarId}&#x60;. **Deprecation:** &#x60;Object&#x60; has unknown usage/fields, and is always empty. Use normal &#x60;Url&#x60; field instead..</param>
-        /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="authorName">authorName (required).</param>
-        /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="description">description (required).</param>
-        /// <param name="featured">featured (required) (default to false).</param>
-        /// <param name="id">id (required).</param>
-        /// <param name="imageUrl">imageUrl (required).</param>
-        /// <param name="name">name (required).</param>
-        /// <param name="releaseStatus">releaseStatus (required).</param>
-        /// <param name="tags">  (required).</param>
-        /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
-        /// <param name="unityPackageUrl">unityPackageUrl (required).</param>
-        /// <param name="unityPackageUrlObject">unityPackageUrlObject (required).</param>
-        /// <param name="unityPackages">unityPackages (required).</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
-        /// <param name="version">version (required) (default to 0).</param>
-        public Avatar(string assetUrl = default(string), Object assetUrlObject = default(Object), string authorId = default(string), string authorName = default(string), DateTime createdAt = default(DateTime), string description = default(string), bool featured = false, string id = default(string), string imageUrl = default(string), string name = default(string), ReleaseStatus releaseStatus = default(ReleaseStatus), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), string unityPackageUrl = default(string), AvatarUnityPackageUrlObject unityPackageUrlObject = default(AvatarUnityPackageUrlObject), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), int version = 0)
+        /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="authorName">authorName.</param>
+        /// <param name="createdAt">createdAt.</param>
+        /// <param name="description">description.</param>
+        /// <param name="featured">featured (default to false).</param>
+        /// <param name="id">id.</param>
+        /// <param name="imageUrl">imageUrl.</param>
+        /// <param name="name">name.</param>
+        /// <param name="releaseStatus">releaseStatus.</param>
+        /// <param name="tags"> .</param>
+        /// <param name="thumbnailImageUrl">thumbnailImageUrl.</param>
+        /// <param name="unityPackageUrl">unityPackageUrl.</param>
+        /// <param name="unityPackageUrlObject">unityPackageUrlObject.</param>
+        /// <param name="unityPackages">unityPackages.</param>
+        /// <param name="updatedAt">updatedAt.</param>
+        /// <param name="version">version (default to 0).</param>
+        public Avatar(string assetUrl = default(string), Object assetUrlObject = default(Object), string authorId = default(string), string authorName = default(string), DateTime createdAt = default(DateTime), string description = default(string), bool featured = false, string id = default(string), string imageUrl = default(string), string name = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), string unityPackageUrl = default(string), AvatarUnityPackageUrlObject unityPackageUrlObject = default(AvatarUnityPackageUrlObject), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), int version = 0)
         {
-            // to ensure "authorId" is required (not null)
-            if (authorId == null)
-            {
-                throw new ArgumentNullException("authorId is a required property for Avatar and cannot be null");
-            }
+            this.AssetUrl = assetUrl;
+            this.AssetUrlObject = assetUrlObject;
             this.AuthorId = authorId;
-            // to ensure "authorName" is required (not null)
-            if (authorName == null)
-            {
-                throw new ArgumentNullException("authorName is a required property for Avatar and cannot be null");
-            }
             this.AuthorName = authorName;
             this.CreatedAt = createdAt;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for Avatar and cannot be null");
-            }
             this.Description = description;
             this.Featured = featured;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Avatar and cannot be null");
-            }
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for Avatar and cannot be null");
-            }
             this.ImageUrl = imageUrl;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for Avatar and cannot be null");
-            }
             this.Name = name;
             this.ReleaseStatus = releaseStatus;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for Avatar and cannot be null");
-            }
             this.Tags = tags;
-            // to ensure "thumbnailImageUrl" is required (not null)
-            if (thumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("thumbnailImageUrl is a required property for Avatar and cannot be null");
-            }
             this.ThumbnailImageUrl = thumbnailImageUrl;
-            // to ensure "unityPackageUrl" is required (not null)
-            if (unityPackageUrl == null)
-            {
-                throw new ArgumentNullException("unityPackageUrl is a required property for Avatar and cannot be null");
-            }
             this.UnityPackageUrl = unityPackageUrl;
-            // to ensure "unityPackageUrlObject" is required (not null)
-            if (unityPackageUrlObject == null)
-            {
-                throw new ArgumentNullException("unityPackageUrlObject is a required property for Avatar and cannot be null");
-            }
             this.UnityPackageUrlObject = unityPackageUrlObject;
-            // to ensure "unityPackages" is required (not null)
-            if (unityPackages == null)
-            {
-                throw new ArgumentNullException("unityPackages is a required property for Avatar and cannot be null");
-            }
             this.UnityPackages = unityPackages;
             this.UpdatedAt = updatedAt;
             this._Version = version;
-            this.AssetUrl = assetUrl;
-            this.AssetUrlObject = assetUrlObject;
         }
 
         /// <summary>
@@ -158,93 +98,93 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "authorId", EmitDefaultValue = false)]
         public string AuthorId { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthorName
         /// </summary>
-        [DataMember(Name = "authorName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "authorName", EmitDefaultValue = false)]
         public string AuthorName { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "created_at", EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Featured
         /// </summary>
-        [DataMember(Name = "featured", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "featured", EmitDefaultValue = true)]
         public bool Featured { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
-        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "imageUrl", EmitDefaultValue = false)]
         public string ImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         ///  
         /// </summary>
         /// <value> </value>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// Gets or Sets ThumbnailImageUrl
         /// </summary>
-        [DataMember(Name = "thumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "thumbnailImageUrl", EmitDefaultValue = false)]
         public string ThumbnailImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets UnityPackageUrl
         /// </summary>
-        [DataMember(Name = "unityPackageUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "unityPackageUrl", EmitDefaultValue = false)]
         public string UnityPackageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets UnityPackageUrlObject
         /// </summary>
-        [DataMember(Name = "unityPackageUrlObject", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "unityPackageUrlObject", EmitDefaultValue = false)]
         [Obsolete]
         public AvatarUnityPackageUrlObject UnityPackageUrlObject { get; set; }
 
         /// <summary>
         /// Gets or Sets UnityPackages
         /// </summary>
-        [DataMember(Name = "unityPackages", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "unityPackages", EmitDefaultValue = false)]
         public List<UnityPackage> UnityPackages { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updated_at", EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
         /// </summary>
-        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "version", EmitDefaultValue = false)]
         public int _Version { get; set; }
 
         /// <summary>

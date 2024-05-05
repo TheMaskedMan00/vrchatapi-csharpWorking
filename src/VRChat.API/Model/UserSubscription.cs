@@ -35,63 +35,39 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Period
         /// </summary>
-        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = true)]
-        public SubscriptionPeriod Period { get; set; }
+        [DataMember(Name = "period", EmitDefaultValue = false)]
+        public SubscriptionPeriod? Period { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public TransactionStatus Status { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public TransactionStatus? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="UserSubscription" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UserSubscription() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UserSubscription" /> class.
-        /// </summary>
-        /// <param name="id">id (required).</param>
-        /// <param name="transactionId">transactionId (required).</param>
-        /// <param name="store">Which \&quot;Store\&quot; it came from. Right now only Stores are \&quot;Steam\&quot; and \&quot;Admin\&quot;. (required).</param>
+        /// <param name="id">id.</param>
+        /// <param name="transactionId">transactionId.</param>
+        /// <param name="store">Which \&quot;Store\&quot; it came from. Right now only Stores are \&quot;Steam\&quot; and \&quot;Admin\&quot;..</param>
         /// <param name="steamItemId">steamItemId.</param>
-        /// <param name="amount">amount (required).</param>
-        /// <param name="description">description (required).</param>
-        /// <param name="period">period (required).</param>
-        /// <param name="tier">tier (required).</param>
-        /// <param name="active">active (required) (default to true).</param>
-        /// <param name="status">status (required).</param>
-        /// <param name="expires">expires (required).</param>
-        /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
-        /// <param name="licenseGroups">licenseGroups (required).</param>
-        /// <param name="isGift">isGift (required) (default to false).</param>
-        public UserSubscription(string id = default(string), string transactionId = default(string), string store = default(string), string steamItemId = default(string), decimal amount = default(decimal), string description = default(string), SubscriptionPeriod period = default(SubscriptionPeriod), decimal tier = default(decimal), bool active = true, TransactionStatus status = default(TransactionStatus), DateTime expires = default(DateTime), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), List<string> licenseGroups = default(List<string>), bool isGift = false)
+        /// <param name="amount">amount.</param>
+        /// <param name="description">description.</param>
+        /// <param name="period">period.</param>
+        /// <param name="tier">tier.</param>
+        /// <param name="active">active (default to true).</param>
+        /// <param name="status">status.</param>
+        /// <param name="expires">expires.</param>
+        /// <param name="createdAt">createdAt.</param>
+        /// <param name="updatedAt">updatedAt.</param>
+        /// <param name="licenseGroups">licenseGroups.</param>
+        /// <param name="isGift">isGift (default to false).</param>
+        public UserSubscription(string id = default(string), string transactionId = default(string), string store = default(string), string steamItemId = default(string), decimal amount = default(decimal), string description = default(string), SubscriptionPeriod? period = default(SubscriptionPeriod?), decimal tier = default(decimal), bool active = true, TransactionStatus? status = default(TransactionStatus?), DateTime expires = default(DateTime), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), List<string> licenseGroups = default(List<string>), bool isGift = false)
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for UserSubscription and cannot be null");
-            }
             this.Id = id;
-            // to ensure "transactionId" is required (not null)
-            if (transactionId == null)
-            {
-                throw new ArgumentNullException("transactionId is a required property for UserSubscription and cannot be null");
-            }
             this.TransactionId = transactionId;
-            // to ensure "store" is required (not null)
-            if (store == null)
-            {
-                throw new ArgumentNullException("store is a required property for UserSubscription and cannot be null");
-            }
             this.Store = store;
+            this.SteamItemId = steamItemId;
             this.Amount = amount;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for UserSubscription and cannot be null");
-            }
             this.Description = description;
             this.Period = period;
             this.Tier = tier;
@@ -100,33 +76,27 @@ namespace VRChat.API.Model
             this.Expires = expires;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            // to ensure "licenseGroups" is required (not null)
-            if (licenseGroups == null)
-            {
-                throw new ArgumentNullException("licenseGroups is a required property for UserSubscription and cannot be null");
-            }
             this.LicenseGroups = licenseGroups;
             this.IsGift = isGift;
-            this.SteamItemId = steamItemId;
         }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionId
         /// </summary>
-        [DataMember(Name = "transactionId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "transactionId", EmitDefaultValue = false)]
         public string TransactionId { get; set; }
 
         /// <summary>
         /// Which \&quot;Store\&quot; it came from. Right now only Stores are \&quot;Steam\&quot; and \&quot;Admin\&quot;.
         /// </summary>
         /// <value>Which \&quot;Store\&quot; it came from. Right now only Stores are \&quot;Steam\&quot; and \&quot;Admin\&quot;.</value>
-        [DataMember(Name = "store", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "store", EmitDefaultValue = false)]
         public string Store { get; set; }
 
         /// <summary>
@@ -138,55 +108,55 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
-        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
         public decimal Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Tier
         /// </summary>
-        [DataMember(Name = "tier", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tier", EmitDefaultValue = false)]
         public decimal Tier { get; set; }
 
         /// <summary>
         /// Gets or Sets Active
         /// </summary>
-        [DataMember(Name = "active", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "active", EmitDefaultValue = true)]
         public bool Active { get; set; }
 
         /// <summary>
         /// Gets or Sets Expires
         /// </summary>
-        [DataMember(Name = "expires", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "expires", EmitDefaultValue = false)]
         public DateTime Expires { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "created_at", EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updated_at", EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets LicenseGroups
         /// </summary>
-        [DataMember(Name = "licenseGroups", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "licenseGroups", EmitDefaultValue = false)]
         public List<string> LicenseGroups { get; set; }
 
         /// <summary>
         /// Gets or Sets IsGift
         /// </summary>
-        [DataMember(Name = "isGift", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isGift", EmitDefaultValue = true)]
         public bool IsGift { get; set; }
 
         /// <summary>

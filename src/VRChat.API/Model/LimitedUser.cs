@@ -35,81 +35,51 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DeveloperType
         /// </summary>
-        [DataMember(Name = "developerType", IsRequired = true, EmitDefaultValue = true)]
-        public DeveloperType DeveloperType { get; set; }
+        [DataMember(Name = "developerType", EmitDefaultValue = false)]
+        public DeveloperType? DeveloperType { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public UserStatus Status { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LimitedUser" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected LimitedUser() { }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public UserStatus? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="LimitedUser" /> class.
         /// </summary>
         /// <param name="bio">bio.</param>
         /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead..</param>
         /// <param name="currentAvatarThumbnailImageUrl">When profilePicOverride is not empty, use it instead..</param>
-        /// <param name="developerType">developerType (required).</param>
-        /// <param name="displayName">displayName (required).</param>
+        /// <param name="developerType">developerType.</param>
+        /// <param name="displayName">displayName.</param>
         /// <param name="fallbackAvatar">fallbackAvatar.</param>
-        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="isFriend">isFriend (required).</param>
-        /// <param name="lastPlatform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
+        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="isFriend">isFriend.</param>
+        /// <param name="lastPlatform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
         /// <param name="profilePicOverride">profilePicOverride.</param>
         /// <param name="pronouns">pronouns.</param>
-        /// <param name="status">status (required).</param>
-        /// <param name="statusDescription">statusDescription (required).</param>
-        /// <param name="tags">&lt;- Always empty. (required).</param>
+        /// <param name="status">status.</param>
+        /// <param name="statusDescription">statusDescription.</param>
+        /// <param name="tags">&lt;- Always empty..</param>
         /// <param name="userIcon">userIcon.</param>
         /// <param name="username">-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
         /// <param name="location">location.</param>
         /// <param name="friendKey">friendKey.</param>
-        public LimitedUser(string bio = default(string), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), DeveloperType developerType = default(DeveloperType), string displayName = default(string), string fallbackAvatar = default(string), string id = default(string), bool isFriend = default(bool), string lastPlatform = default(string), string profilePicOverride = default(string), string pronouns = default(string), UserStatus status = default(UserStatus), string statusDescription = default(string), List<string> tags = default(List<string>), string userIcon = default(string), string username = default(string), string location = default(string), string friendKey = default(string))
+        public LimitedUser(string bio = default(string), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), DeveloperType? developerType = default(DeveloperType?), string displayName = default(string), string fallbackAvatar = default(string), string id = default(string), bool isFriend = default(bool), string lastPlatform = default(string), string profilePicOverride = default(string), string pronouns = default(string), UserStatus? status = default(UserStatus?), string statusDescription = default(string), List<string> tags = default(List<string>), string userIcon = default(string), string username = default(string), string location = default(string), string friendKey = default(string))
         {
-            this.DeveloperType = developerType;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for LimitedUser and cannot be null");
-            }
-            this.DisplayName = displayName;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for LimitedUser and cannot be null");
-            }
-            this.Id = id;
-            this.IsFriend = isFriend;
-            // to ensure "lastPlatform" is required (not null)
-            if (lastPlatform == null)
-            {
-                throw new ArgumentNullException("lastPlatform is a required property for LimitedUser and cannot be null");
-            }
-            this.LastPlatform = lastPlatform;
-            this.Status = status;
-            // to ensure "statusDescription" is required (not null)
-            if (statusDescription == null)
-            {
-                throw new ArgumentNullException("statusDescription is a required property for LimitedUser and cannot be null");
-            }
-            this.StatusDescription = statusDescription;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for LimitedUser and cannot be null");
-            }
-            this.Tags = tags;
             this.Bio = bio;
             this.CurrentAvatarImageUrl = currentAvatarImageUrl;
             this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
+            this.DeveloperType = developerType;
+            this.DisplayName = displayName;
             this.FallbackAvatar = fallbackAvatar;
+            this.Id = id;
+            this.IsFriend = isFriend;
+            this.LastPlatform = lastPlatform;
             this.ProfilePicOverride = profilePicOverride;
             this.Pronouns = pronouns;
+            this.Status = status;
+            this.StatusDescription = statusDescription;
+            this.Tags = tags;
             this.UserIcon = userIcon;
             this.Username = username;
             this.Location = location;
@@ -139,7 +109,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -152,20 +122,20 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets IsFriend
         /// </summary>
-        [DataMember(Name = "isFriend", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isFriend", EmitDefaultValue = true)]
         public bool IsFriend { get; set; }
 
         /// <summary>
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        [DataMember(Name = "last_platform", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "last_platform", EmitDefaultValue = false)]
         public string LastPlatform { get; set; }
 
         /// <summary>
@@ -183,14 +153,14 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets StatusDescription
         /// </summary>
-        [DataMember(Name = "statusDescription", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "statusDescription", EmitDefaultValue = false)]
         public string StatusDescription { get; set; }
 
         /// <summary>
         /// &lt;- Always empty.
         /// </summary>
         /// <value>&lt;- Always empty.</value>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>

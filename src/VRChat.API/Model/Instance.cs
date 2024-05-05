@@ -35,20 +35,20 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PhotonRegion
         /// </summary>
-        [DataMember(Name = "photonRegion", IsRequired = true, EmitDefaultValue = true)]
-        public Region PhotonRegion { get; set; }
+        [DataMember(Name = "photonRegion", EmitDefaultValue = false)]
+        public Region? PhotonRegion { get; set; }
 
         /// <summary>
         /// Gets or Sets Region
         /// </summary>
-        [DataMember(Name = "region", IsRequired = true, EmitDefaultValue = true)]
-        public Region Region { get; set; }
+        [DataMember(Name = "region", EmitDefaultValue = false)]
+        public Region? Region { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public InstanceType Type { get; set; }
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public InstanceType? Type { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupAccessType
@@ -58,129 +58,74 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Instance" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Instance() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Instance" /> class.
-        /// </summary>
-        /// <param name="active">active (required) (default to true).</param>
-        /// <param name="canRequestInvite">canRequestInvite (required) (default to true).</param>
-        /// <param name="capacity">capacity (required).</param>
-        /// <param name="clientNumber">Always returns \&quot;unknown\&quot;. (required).</param>
-        /// <param name="full">full (required) (default to false).</param>
-        /// <param name="id">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. (required).</param>
-        /// <param name="instanceId">instanceId (required).</param>
-        /// <param name="location">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. (required).</param>
-        /// <param name="nUsers">nUsers (required).</param>
-        /// <param name="name">name (required).</param>
+        /// <param name="active">active (default to true).</param>
+        /// <param name="canRequestInvite">canRequestInvite (default to true).</param>
+        /// <param name="capacity">capacity.</param>
+        /// <param name="clientNumber">Always returns \&quot;unknown\&quot;..</param>
+        /// <param name="full">full (default to false).</param>
+        /// <param name="id">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance..</param>
+        /// <param name="instanceId">instanceId.</param>
+        /// <param name="location">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance..</param>
+        /// <param name="nUsers">nUsers.</param>
+        /// <param name="name">name.</param>
         /// <param name="ownerId">A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise.</param>
-        /// <param name="permanent">permanent (required) (default to false).</param>
-        /// <param name="photonRegion">photonRegion (required).</param>
-        /// <param name="platforms">platforms (required).</param>
-        /// <param name="region">region (required).</param>
-        /// <param name="secureName">secureName (required).</param>
+        /// <param name="permanent">permanent (default to false).</param>
+        /// <param name="photonRegion">photonRegion.</param>
+        /// <param name="platforms">platforms.</param>
+        /// <param name="region">region.</param>
+        /// <param name="secureName">secureName.</param>
         /// <param name="shortName">shortName.</param>
-        /// <param name="tags">The tags array on Instances usually contain the language tags of the people in the instance.  (required).</param>
-        /// <param name="type">type (required).</param>
-        /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
+        /// <param name="tags">The tags array on Instances usually contain the language tags of the people in the instance. .</param>
+        /// <param name="type">type.</param>
+        /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
         /// <param name="hidden">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="friends">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="_private">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
-        /// <param name="queueEnabled">queueEnabled (required).</param>
-        /// <param name="queueSize">queueSize (required).</param>
-        /// <param name="recommendedCapacity">recommendedCapacity (required).</param>
+        /// <param name="queueEnabled">queueEnabled.</param>
+        /// <param name="queueSize">queueSize.</param>
+        /// <param name="recommendedCapacity">recommendedCapacity.</param>
         /// <param name="roleRestricted">roleRestricted.</param>
-        /// <param name="strict">strict (required).</param>
-        /// <param name="userCount">userCount (required).</param>
-        /// <param name="world">world (required).</param>
+        /// <param name="strict">strict.</param>
+        /// <param name="userCount">userCount.</param>
+        /// <param name="world">world.</param>
         /// <param name="users">The users field is present on instances created by the requesting user..</param>
         /// <param name="groupAccessType">groupAccessType.</param>
         /// <param name="hasCapacityForYou">hasCapacityForYou.</param>
         /// <param name="nonce">nonce.</param>
         /// <param name="closedAt">closedAt.</param>
         /// <param name="hardClose">hardClose.</param>
-        public Instance(bool active = true, bool canRequestInvite = true, int capacity = default(int), string clientNumber = default(string), bool full = false, string id = default(string), string instanceId = default(string), string location = default(string), int nUsers = default(int), string name = default(string), string ownerId = default(string), bool permanent = false, Region photonRegion = default(Region), InstancePlatforms platforms = default(InstancePlatforms), Region region = default(Region), string secureName = default(string), string shortName = default(string), List<string> tags = default(List<string>), InstanceType type = default(InstanceType), string worldId = default(string), string hidden = default(string), string friends = default(string), string _private = default(string), bool queueEnabled = default(bool), int queueSize = default(int), int recommendedCapacity = default(int), bool roleRestricted = default(bool), bool strict = default(bool), int userCount = default(int), World world = default(World), List<LimitedUser> users = default(List<LimitedUser>), GroupAccessType? groupAccessType = default(GroupAccessType?), bool hasCapacityForYou = default(bool), string nonce = default(string), DateTime? closedAt = default(DateTime?), bool? hardClose = default(bool?))
+        public Instance(bool active = true, bool canRequestInvite = true, int capacity = default(int), string clientNumber = default(string), bool full = false, string id = default(string), string instanceId = default(string), string location = default(string), int nUsers = default(int), string name = default(string), string ownerId = default(string), bool permanent = false, Region? photonRegion = default(Region?), InstancePlatforms platforms = default(InstancePlatforms), Region? region = default(Region?), string secureName = default(string), string shortName = default(string), List<string> tags = default(List<string>), InstanceType? type = default(InstanceType?), string worldId = default(string), string hidden = default(string), string friends = default(string), string _private = default(string), bool queueEnabled = default(bool), int queueSize = default(int), int recommendedCapacity = default(int), bool roleRestricted = default(bool), bool strict = default(bool), int userCount = default(int), World world = default(World), List<LimitedUser> users = default(List<LimitedUser>), GroupAccessType? groupAccessType = default(GroupAccessType?), bool hasCapacityForYou = default(bool), string nonce = default(string), DateTime? closedAt = default(DateTime?), bool? hardClose = default(bool?))
         {
             this.Active = active;
             this.CanRequestInvite = canRequestInvite;
             this.Capacity = capacity;
-            // to ensure "clientNumber" is required (not null)
-            if (clientNumber == null)
-            {
-                throw new ArgumentNullException("clientNumber is a required property for Instance and cannot be null");
-            }
             this.ClientNumber = clientNumber;
             this.Full = full;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Instance and cannot be null");
-            }
             this.Id = id;
-            // to ensure "instanceId" is required (not null)
-            if (instanceId == null)
-            {
-                throw new ArgumentNullException("instanceId is a required property for Instance and cannot be null");
-            }
             this.InstanceId = instanceId;
-            // to ensure "location" is required (not null)
-            if (location == null)
-            {
-                throw new ArgumentNullException("location is a required property for Instance and cannot be null");
-            }
             this.Location = location;
             this.NUsers = nUsers;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for Instance and cannot be null");
-            }
             this.Name = name;
+            this.OwnerId = ownerId;
             this.Permanent = permanent;
             this.PhotonRegion = photonRegion;
-            // to ensure "platforms" is required (not null)
-            if (platforms == null)
-            {
-                throw new ArgumentNullException("platforms is a required property for Instance and cannot be null");
-            }
             this.Platforms = platforms;
             this.Region = region;
-            // to ensure "secureName" is required (not null)
-            if (secureName == null)
-            {
-                throw new ArgumentNullException("secureName is a required property for Instance and cannot be null");
-            }
             this.SecureName = secureName;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for Instance and cannot be null");
-            }
+            this.ShortName = shortName;
             this.Tags = tags;
             this.Type = type;
-            // to ensure "worldId" is required (not null)
-            if (worldId == null)
-            {
-                throw new ArgumentNullException("worldId is a required property for Instance and cannot be null");
-            }
             this.WorldId = worldId;
-            this.QueueEnabled = queueEnabled;
-            this.QueueSize = queueSize;
-            this.RecommendedCapacity = recommendedCapacity;
-            this.Strict = strict;
-            this.UserCount = userCount;
-            // to ensure "world" is required (not null)
-            if (world == null)
-            {
-                throw new ArgumentNullException("world is a required property for Instance and cannot be null");
-            }
-            this.World = world;
-            this.OwnerId = ownerId;
-            this.ShortName = shortName;
             this.Hidden = hidden;
             this.Friends = friends;
             this.Private = _private;
+            this.QueueEnabled = queueEnabled;
+            this.QueueSize = queueSize;
+            this.RecommendedCapacity = recommendedCapacity;
             this.RoleRestricted = roleRestricted;
+            this.Strict = strict;
+            this.UserCount = userCount;
+            this.World = world;
             this.Users = users;
             this.GroupAccessType = groupAccessType;
             this.HasCapacityForYou = hasCapacityForYou;
@@ -192,65 +137,65 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Active
         /// </summary>
-        [DataMember(Name = "active", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "active", EmitDefaultValue = true)]
         public bool Active { get; set; }
 
         /// <summary>
         /// Gets or Sets CanRequestInvite
         /// </summary>
-        [DataMember(Name = "canRequestInvite", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "canRequestInvite", EmitDefaultValue = true)]
         public bool CanRequestInvite { get; set; }
 
         /// <summary>
         /// Gets or Sets Capacity
         /// </summary>
-        [DataMember(Name = "capacity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "capacity", EmitDefaultValue = false)]
         public int Capacity { get; set; }
 
         /// <summary>
         /// Always returns \&quot;unknown\&quot;.
         /// </summary>
         /// <value>Always returns \&quot;unknown\&quot;.</value>
-        [DataMember(Name = "clientNumber", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientNumber", EmitDefaultValue = false)]
         [Obsolete]
         public string ClientNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets Full
         /// </summary>
-        [DataMember(Name = "full", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "full", EmitDefaultValue = true)]
         public bool Full { get; set; }
 
         /// <summary>
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets InstanceId
         /// </summary>
-        [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "instanceId", EmitDefaultValue = false)]
         public string InstanceId { get; set; }
 
         /// <summary>
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
-        [DataMember(Name = "location", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "location", EmitDefaultValue = false)]
         public string Location { get; set; }
 
         /// <summary>
         /// Gets or Sets NUsers
         /// </summary>
-        [DataMember(Name = "n_users", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "n_users", EmitDefaultValue = false)]
         public int NUsers { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -263,19 +208,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Permanent
         /// </summary>
-        [DataMember(Name = "permanent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "permanent", EmitDefaultValue = true)]
         public bool Permanent { get; set; }
 
         /// <summary>
         /// Gets or Sets Platforms
         /// </summary>
-        [DataMember(Name = "platforms", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "platforms", EmitDefaultValue = false)]
         public InstancePlatforms Platforms { get; set; }
 
         /// <summary>
         /// Gets or Sets SecureName
         /// </summary>
-        [DataMember(Name = "secureName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "secureName", EmitDefaultValue = false)]
         public string SecureName { get; set; }
 
         /// <summary>
@@ -288,14 +233,14 @@ namespace VRChat.API.Model
         /// The tags array on Instances usually contain the language tags of the people in the instance. 
         /// </summary>
         /// <value>The tags array on Instances usually contain the language tags of the people in the instance. </value>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "worldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "worldId", EmitDefaultValue = false)]
         public string WorldId { get; set; }
 
         /// <summary>
@@ -322,19 +267,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets QueueEnabled
         /// </summary>
-        [DataMember(Name = "queueEnabled", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "queueEnabled", EmitDefaultValue = true)]
         public bool QueueEnabled { get; set; }
 
         /// <summary>
         /// Gets or Sets QueueSize
         /// </summary>
-        [DataMember(Name = "queueSize", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "queueSize", EmitDefaultValue = false)]
         public int QueueSize { get; set; }
 
         /// <summary>
         /// Gets or Sets RecommendedCapacity
         /// </summary>
-        [DataMember(Name = "recommendedCapacity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "recommendedCapacity", EmitDefaultValue = false)]
         public int RecommendedCapacity { get; set; }
 
         /// <summary>
@@ -346,19 +291,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Strict
         /// </summary>
-        [DataMember(Name = "strict", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "strict", EmitDefaultValue = true)]
         public bool Strict { get; set; }
 
         /// <summary>
         /// Gets or Sets UserCount
         /// </summary>
-        [DataMember(Name = "userCount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userCount", EmitDefaultValue = false)]
         public int UserCount { get; set; }
 
         /// <summary>
         /// Gets or Sets World
         /// </summary>
-        [DataMember(Name = "world", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "world", EmitDefaultValue = false)]
         public World World { get; set; }
 
         /// <summary>

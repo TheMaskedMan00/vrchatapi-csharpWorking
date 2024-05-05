@@ -61,88 +61,64 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Category
         /// </summary>
-        [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
-        public CategoryEnum Category { get; set; }
+        [DataMember(Name = "category", EmitDefaultValue = false)]
+        public CategoryEnum? Category { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public FileStatus Status { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public FileStatus? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FileData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FileData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileData" /> class.
-        /// </summary>
-        /// <param name="category">category (required) (default to CategoryEnum.Queued).</param>
-        /// <param name="fileName">fileName (required).</param>
-        /// <param name="md5">md5 (required).</param>
-        /// <param name="sizeInBytes">sizeInBytes (required).</param>
-        /// <param name="status">status (required).</param>
-        /// <param name="uploadId">uploadId (required) (default to &quot;&quot;).</param>
-        /// <param name="url">url (required).</param>
-        public FileData(CategoryEnum category = CategoryEnum.Queued, string fileName = default(string), string md5 = default(string), int sizeInBytes = default(int), FileStatus status = default(FileStatus), string uploadId = "", string url = default(string))
+        /// <param name="category">category (default to CategoryEnum.Queued).</param>
+        /// <param name="fileName">fileName.</param>
+        /// <param name="md5">md5.</param>
+        /// <param name="sizeInBytes">sizeInBytes.</param>
+        /// <param name="status">status.</param>
+        /// <param name="uploadId">uploadId (default to &quot;&quot;).</param>
+        /// <param name="url">url.</param>
+        public FileData(CategoryEnum? category = CategoryEnum.Queued, string fileName = default(string), string md5 = default(string), int sizeInBytes = default(int), FileStatus? status = default(FileStatus?), string uploadId = "", string url = default(string))
         {
             this.Category = category;
-            // to ensure "fileName" is required (not null)
-            if (fileName == null)
-            {
-                throw new ArgumentNullException("fileName is a required property for FileData and cannot be null");
-            }
             this.FileName = fileName;
-            // to ensure "md5" is required (not null)
-            if (md5 == null)
-            {
-                throw new ArgumentNullException("md5 is a required property for FileData and cannot be null");
-            }
             this.Md5 = md5;
             this.SizeInBytes = sizeInBytes;
             this.Status = status;
-            // to ensure "uploadId" is required (not null)
-            if (uploadId == null)
-            {
-                throw new ArgumentNullException("uploadId is a required property for FileData and cannot be null");
-            }
-            this.UploadId = uploadId;
-            // to ensure "url" is required (not null)
-            if (url == null)
-            {
-                throw new ArgumentNullException("url is a required property for FileData and cannot be null");
-            }
+            // use default value if no "uploadId" provided
+            this.UploadId = uploadId ?? "";
             this.Url = url;
         }
 
         /// <summary>
         /// Gets or Sets FileName
         /// </summary>
-        [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fileName", EmitDefaultValue = false)]
         public string FileName { get; set; }
 
         /// <summary>
         /// Gets or Sets Md5
         /// </summary>
-        [DataMember(Name = "md5", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "md5", EmitDefaultValue = false)]
         public string Md5 { get; set; }
 
         /// <summary>
         /// Gets or Sets SizeInBytes
         /// </summary>
-        [DataMember(Name = "sizeInBytes", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sizeInBytes", EmitDefaultValue = false)]
         public int SizeInBytes { get; set; }
 
         /// <summary>
         /// Gets or Sets UploadId
         /// </summary>
-        [DataMember(Name = "uploadId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "uploadId", EmitDefaultValue = false)]
         public string UploadId { get; set; }
 
         /// <summary>
         /// Gets or Sets Url
         /// </summary>
-        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url { get; set; }
 
         /// <summary>

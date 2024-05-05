@@ -35,177 +35,87 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DeveloperType
         /// </summary>
-        [DataMember(Name = "developerType", IsRequired = true, EmitDefaultValue = true)]
-        public DeveloperType DeveloperType { get; set; }
+        [DataMember(Name = "developerType", EmitDefaultValue = false)]
+        public DeveloperType? DeveloperType { get; set; }
 
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
-        public UserState State { get; set; }
+        [DataMember(Name = "state", EmitDefaultValue = false)]
+        public UserState? State { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public UserStatus Status { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public UserStatus? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="User" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected User() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="User" /> class.
-        /// </summary>
-        /// <param name="allowAvatarCopying">allowAvatarCopying (required) (default to true).</param>
-        /// <param name="badges">  (required).</param>
-        /// <param name="bio">bio (required).</param>
-        /// <param name="bioLinks">bioLinks (required).</param>
-        /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
-        /// <param name="currentAvatarThumbnailImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
-        /// <param name="currentAvatarTags">currentAvatarTags (required).</param>
-        /// <param name="dateJoined">dateJoined (required).</param>
-        /// <param name="developerType">developerType (required).</param>
-        /// <param name="displayName">A users visual display name. This is what shows up in-game, and can different from their &#x60;username&#x60;. Changing display name is restricted to a cooldown period. (required).</param>
-        /// <param name="friendKey">friendKey (required).</param>
+        /// <param name="allowAvatarCopying">allowAvatarCopying (default to true).</param>
+        /// <param name="badges"> .</param>
+        /// <param name="bio">bio.</param>
+        /// <param name="bioLinks">bioLinks.</param>
+        /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead..</param>
+        /// <param name="currentAvatarThumbnailImageUrl">When profilePicOverride is not empty, use it instead..</param>
+        /// <param name="currentAvatarTags">currentAvatarTags.</param>
+        /// <param name="dateJoined">dateJoined.</param>
+        /// <param name="developerType">developerType.</param>
+        /// <param name="displayName">A users visual display name. This is what shows up in-game, and can different from their &#x60;username&#x60;. Changing display name is restricted to a cooldown period..</param>
+        /// <param name="friendKey">friendKey.</param>
         /// <param name="friendRequestStatus">friendRequestStatus.</param>
-        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
+        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="instanceId">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance..</param>
-        /// <param name="isFriend">Either their &#x60;friendKey&#x60;, or empty string if you are not friends. Unknown usage. (required).</param>
-        /// <param name="lastActivity">Either a date-time or empty string. (required).</param>
-        /// <param name="lastLogin">Either a date-time or empty string. (required).</param>
-        /// <param name="lastPlatform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
+        /// <param name="isFriend">Either their &#x60;friendKey&#x60;, or empty string if you are not friends. Unknown usage..</param>
+        /// <param name="lastActivity">Either a date-time or empty string..</param>
+        /// <param name="lastLogin">Either a date-time or empty string..</param>
+        /// <param name="lastPlatform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
         /// <param name="location">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
         /// <param name="note">note.</param>
-        /// <param name="profilePicOverride">profilePicOverride (required).</param>
-        /// <param name="pronouns">pronouns (required).</param>
-        /// <param name="state">state (required).</param>
-        /// <param name="status">status (required).</param>
-        /// <param name="statusDescription">statusDescription (required).</param>
-        /// <param name="tags">  (required).</param>
+        /// <param name="profilePicOverride">profilePicOverride.</param>
+        /// <param name="pronouns">pronouns.</param>
+        /// <param name="state">state.</param>
+        /// <param name="status">status.</param>
+        /// <param name="statusDescription">statusDescription.</param>
+        /// <param name="tags"> .</param>
         /// <param name="travelingToInstance">travelingToInstance.</param>
         /// <param name="travelingToLocation">travelingToLocation.</param>
         /// <param name="travelingToWorld">travelingToWorld.</param>
-        /// <param name="userIcon">userIcon (required).</param>
+        /// <param name="userIcon">userIcon.</param>
         /// <param name="username">-| A users unique name, used during login. This is different from &#x60;displayName&#x60; which is what shows up in-game. A users &#x60;username&#x60; can never be changed.&#39; **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public User(bool allowAvatarCopying = true, List<Badge> badges = default(List<Badge>), string bio = default(string), List<string> bioLinks = default(List<string>), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), List<string> currentAvatarTags = default(List<string>), DateTime dateJoined = default(DateTime), DeveloperType developerType = default(DeveloperType), string displayName = default(string), string friendKey = default(string), string friendRequestStatus = default(string), string id = default(string), string instanceId = default(string), bool isFriend = default(bool), string lastActivity = default(string), string lastLogin = default(string), string lastPlatform = default(string), string location = default(string), string note = default(string), string profilePicOverride = default(string), string pronouns = default(string), UserState state = default(UserState), UserStatus status = default(UserStatus), string statusDescription = default(string), List<string> tags = default(List<string>), string travelingToInstance = default(string), string travelingToLocation = default(string), string travelingToWorld = default(string), string userIcon = default(string), string username = default(string), string worldId = default(string))
+        public User(bool allowAvatarCopying = true, List<Badge> badges = default(List<Badge>), string bio = default(string), List<string> bioLinks = default(List<string>), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), List<string> currentAvatarTags = default(List<string>), DateTime dateJoined = default(DateTime), DeveloperType? developerType = default(DeveloperType?), string displayName = default(string), string friendKey = default(string), string friendRequestStatus = default(string), string id = default(string), string instanceId = default(string), bool isFriend = default(bool), string lastActivity = default(string), string lastLogin = default(string), string lastPlatform = default(string), string location = default(string), string note = default(string), string profilePicOverride = default(string), string pronouns = default(string), UserState? state = default(UserState?), UserStatus? status = default(UserStatus?), string statusDescription = default(string), List<string> tags = default(List<string>), string travelingToInstance = default(string), string travelingToLocation = default(string), string travelingToWorld = default(string), string userIcon = default(string), string username = default(string), string worldId = default(string))
         {
             this.AllowAvatarCopying = allowAvatarCopying;
-            // to ensure "badges" is required (not null)
-            if (badges == null)
-            {
-                throw new ArgumentNullException("badges is a required property for User and cannot be null");
-            }
             this.Badges = badges;
-            // to ensure "bio" is required (not null)
-            if (bio == null)
-            {
-                throw new ArgumentNullException("bio is a required property for User and cannot be null");
-            }
             this.Bio = bio;
-            // to ensure "bioLinks" is required (not null)
-            if (bioLinks == null)
-            {
-                throw new ArgumentNullException("bioLinks is a required property for User and cannot be null");
-            }
             this.BioLinks = bioLinks;
-            // to ensure "currentAvatarImageUrl" is required (not null)
-            if (currentAvatarImageUrl == null)
-            {
-                throw new ArgumentNullException("currentAvatarImageUrl is a required property for User and cannot be null");
-            }
             this.CurrentAvatarImageUrl = currentAvatarImageUrl;
-            // to ensure "currentAvatarThumbnailImageUrl" is required (not null)
-            if (currentAvatarThumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("currentAvatarThumbnailImageUrl is a required property for User and cannot be null");
-            }
             this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
-            // to ensure "currentAvatarTags" is required (not null)
-            if (currentAvatarTags == null)
-            {
-                throw new ArgumentNullException("currentAvatarTags is a required property for User and cannot be null");
-            }
             this.CurrentAvatarTags = currentAvatarTags;
             this.DateJoined = dateJoined;
             this.DeveloperType = developerType;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for User and cannot be null");
-            }
             this.DisplayName = displayName;
-            // to ensure "friendKey" is required (not null)
-            if (friendKey == null)
-            {
-                throw new ArgumentNullException("friendKey is a required property for User and cannot be null");
-            }
             this.FriendKey = friendKey;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for User and cannot be null");
-            }
+            this.FriendRequestStatus = friendRequestStatus;
             this.Id = id;
+            this.InstanceId = instanceId;
             this.IsFriend = isFriend;
-            // to ensure "lastActivity" is required (not null)
-            if (lastActivity == null)
-            {
-                throw new ArgumentNullException("lastActivity is a required property for User and cannot be null");
-            }
             this.LastActivity = lastActivity;
-            // to ensure "lastLogin" is required (not null)
-            if (lastLogin == null)
-            {
-                throw new ArgumentNullException("lastLogin is a required property for User and cannot be null");
-            }
             this.LastLogin = lastLogin;
-            // to ensure "lastPlatform" is required (not null)
-            if (lastPlatform == null)
-            {
-                throw new ArgumentNullException("lastPlatform is a required property for User and cannot be null");
-            }
             this.LastPlatform = lastPlatform;
-            // to ensure "profilePicOverride" is required (not null)
-            if (profilePicOverride == null)
-            {
-                throw new ArgumentNullException("profilePicOverride is a required property for User and cannot be null");
-            }
+            this.Location = location;
+            this.Note = note;
             this.ProfilePicOverride = profilePicOverride;
-            // to ensure "pronouns" is required (not null)
-            if (pronouns == null)
-            {
-                throw new ArgumentNullException("pronouns is a required property for User and cannot be null");
-            }
             this.Pronouns = pronouns;
             this.State = state;
             this.Status = status;
-            // to ensure "statusDescription" is required (not null)
-            if (statusDescription == null)
-            {
-                throw new ArgumentNullException("statusDescription is a required property for User and cannot be null");
-            }
             this.StatusDescription = statusDescription;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for User and cannot be null");
-            }
             this.Tags = tags;
-            // to ensure "userIcon" is required (not null)
-            if (userIcon == null)
-            {
-                throw new ArgumentNullException("userIcon is a required property for User and cannot be null");
-            }
-            this.UserIcon = userIcon;
-            this.FriendRequestStatus = friendRequestStatus;
-            this.InstanceId = instanceId;
-            this.Location = location;
-            this.Note = note;
             this.TravelingToInstance = travelingToInstance;
             this.TravelingToLocation = travelingToLocation;
             this.TravelingToWorld = travelingToWorld;
+            this.UserIcon = userIcon;
             this.Username = username;
             this.WorldId = worldId;
         }
@@ -213,52 +123,52 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AllowAvatarCopying
         /// </summary>
-        [DataMember(Name = "allowAvatarCopying", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "allowAvatarCopying", EmitDefaultValue = true)]
         public bool AllowAvatarCopying { get; set; }
 
         /// <summary>
         ///  
         /// </summary>
         /// <value> </value>
-        [DataMember(Name = "badges", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "badges", EmitDefaultValue = false)]
         public List<Badge> Badges { get; set; }
 
         /// <summary>
         /// Gets or Sets Bio
         /// </summary>
-        [DataMember(Name = "bio", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bio", EmitDefaultValue = false)]
         public string Bio { get; set; }
 
         /// <summary>
         /// Gets or Sets BioLinks
         /// </summary>
-        [DataMember(Name = "bioLinks", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bioLinks", EmitDefaultValue = false)]
         public List<string> BioLinks { get; set; }
 
         /// <summary>
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
-        [DataMember(Name = "currentAvatarImageUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currentAvatarImageUrl", EmitDefaultValue = false)]
         public string CurrentAvatarImageUrl { get; set; }
 
         /// <summary>
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
-        [DataMember(Name = "currentAvatarThumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currentAvatarThumbnailImageUrl", EmitDefaultValue = false)]
         public string CurrentAvatarThumbnailImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentAvatarTags
         /// </summary>
-        [DataMember(Name = "currentAvatarTags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currentAvatarTags", EmitDefaultValue = false)]
         public List<string> CurrentAvatarTags { get; set; }
 
         /// <summary>
         /// Gets or Sets DateJoined
         /// </summary>
-        [DataMember(Name = "date_joined", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "date_joined", EmitDefaultValue = false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime DateJoined { get; set; }
 
@@ -266,13 +176,13 @@ namespace VRChat.API.Model
         /// A users visual display name. This is what shows up in-game, and can different from their &#x60;username&#x60;. Changing display name is restricted to a cooldown period.
         /// </summary>
         /// <value>A users visual display name. This is what shows up in-game, and can different from their &#x60;username&#x60;. Changing display name is restricted to a cooldown period.</value>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets FriendKey
         /// </summary>
-        [DataMember(Name = "friendKey", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "friendKey", EmitDefaultValue = false)]
         public string FriendKey { get; set; }
 
         /// <summary>
@@ -285,7 +195,7 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
@@ -299,28 +209,28 @@ namespace VRChat.API.Model
         /// Either their &#x60;friendKey&#x60;, or empty string if you are not friends. Unknown usage.
         /// </summary>
         /// <value>Either their &#x60;friendKey&#x60;, or empty string if you are not friends. Unknown usage.</value>
-        [DataMember(Name = "isFriend", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isFriend", EmitDefaultValue = true)]
         public bool IsFriend { get; set; }
 
         /// <summary>
         /// Either a date-time or empty string.
         /// </summary>
         /// <value>Either a date-time or empty string.</value>
-        [DataMember(Name = "last_activity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "last_activity", EmitDefaultValue = false)]
         public string LastActivity { get; set; }
 
         /// <summary>
         /// Either a date-time or empty string.
         /// </summary>
         /// <value>Either a date-time or empty string.</value>
-        [DataMember(Name = "last_login", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "last_login", EmitDefaultValue = false)]
         public string LastLogin { get; set; }
 
         /// <summary>
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        [DataMember(Name = "last_platform", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "last_platform", EmitDefaultValue = false)]
         public string LastPlatform { get; set; }
 
         /// <summary>
@@ -339,26 +249,26 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ProfilePicOverride
         /// </summary>
-        [DataMember(Name = "profilePicOverride", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "profilePicOverride", EmitDefaultValue = false)]
         public string ProfilePicOverride { get; set; }
 
         /// <summary>
         /// Gets or Sets Pronouns
         /// </summary>
-        [DataMember(Name = "pronouns", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "pronouns", EmitDefaultValue = false)]
         public string Pronouns { get; set; }
 
         /// <summary>
         /// Gets or Sets StatusDescription
         /// </summary>
-        [DataMember(Name = "statusDescription", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "statusDescription", EmitDefaultValue = false)]
         public string StatusDescription { get; set; }
 
         /// <summary>
         ///  
         /// </summary>
         /// <value> </value>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
@@ -382,7 +292,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UserIcon
         /// </summary>
-        [DataMember(Name = "userIcon", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userIcon", EmitDefaultValue = false)]
         public string UserIcon { get; set; }
 
         /// <summary>

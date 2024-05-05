@@ -35,57 +35,37 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public TransactionStatus Status { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public TransactionStatus? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Transaction" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Transaction() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Transaction" /> class.
-        /// </summary>
-        /// <param name="id">id (required).</param>
+        /// <param name="id">id.</param>
         /// <param name="userId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="userDisplayName">userDisplayName.</param>
-        /// <param name="status">status (required).</param>
-        /// <param name="subscription">subscription (required).</param>
-        /// <param name="sandbox">sandbox (required) (default to false).</param>
-        /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
+        /// <param name="status">status.</param>
+        /// <param name="subscription">subscription.</param>
+        /// <param name="sandbox">sandbox (default to false).</param>
+        /// <param name="createdAt">createdAt.</param>
+        /// <param name="updatedAt">updatedAt.</param>
         /// <param name="steam">steam.</param>
         /// <param name="agreement">agreement.</param>
-        /// <param name="error">error (required).</param>
+        /// <param name="error">error.</param>
         /// <param name="isGift">isGift (default to false).</param>
         /// <param name="isTokens">isTokens (default to false).</param>
-        public Transaction(string id = default(string), string userId = default(string), string userDisplayName = default(string), TransactionStatus status = default(TransactionStatus), Subscription subscription = default(Subscription), bool sandbox = false, DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), TransactionSteamInfo steam = default(TransactionSteamInfo), TransactionAgreement agreement = default(TransactionAgreement), string error = default(string), bool isGift = false, bool isTokens = false)
+        public Transaction(string id = default(string), string userId = default(string), string userDisplayName = default(string), TransactionStatus? status = default(TransactionStatus?), Subscription subscription = default(Subscription), bool sandbox = false, DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), TransactionSteamInfo steam = default(TransactionSteamInfo), TransactionAgreement agreement = default(TransactionAgreement), string error = default(string), bool isGift = false, bool isTokens = false)
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Transaction and cannot be null");
-            }
             this.Id = id;
+            this.UserId = userId;
+            this.UserDisplayName = userDisplayName;
             this.Status = status;
-            // to ensure "subscription" is required (not null)
-            if (subscription == null)
-            {
-                throw new ArgumentNullException("subscription is a required property for Transaction and cannot be null");
-            }
             this.Subscription = subscription;
             this.Sandbox = sandbox;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            // to ensure "error" is required (not null)
-            if (error == null)
-            {
-                throw new ArgumentNullException("error is a required property for Transaction and cannot be null");
-            }
-            this.Error = error;
-            this.UserId = userId;
-            this.UserDisplayName = userDisplayName;
             this.Steam = steam;
             this.Agreement = agreement;
+            this.Error = error;
             this.IsGift = isGift;
             this.IsTokens = isTokens;
         }
@@ -93,7 +73,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
@@ -112,25 +92,25 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Subscription
         /// </summary>
-        [DataMember(Name = "subscription", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subscription", EmitDefaultValue = false)]
         public Subscription Subscription { get; set; }
 
         /// <summary>
         /// Gets or Sets Sandbox
         /// </summary>
-        [DataMember(Name = "sandbox", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sandbox", EmitDefaultValue = true)]
         public bool Sandbox { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "created_at", EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updated_at", EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
@@ -148,7 +128,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "error", EmitDefaultValue = false)]
         public string Error { get; set; }
 
         /// <summary>

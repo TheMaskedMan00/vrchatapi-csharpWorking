@@ -35,37 +35,22 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets MessageType
         /// </summary>
-        [DataMember(Name = "messageType", IsRequired = true, EmitDefaultValue = true)]
-        public InviteMessageType MessageType { get; set; }
+        [DataMember(Name = "messageType", EmitDefaultValue = false)]
+        public InviteMessageType? MessageType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InviteMessage" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InviteMessage() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InviteMessage" /> class.
-        /// </summary>
-        /// <param name="canBeUpdated">canBeUpdated (required) (default to true).</param>
-        /// <param name="id">id (required).</param>
-        /// <param name="message">message (required).</param>
-        /// <param name="messageType">messageType (required).</param>
-        /// <param name="remainingCooldownMinutes">Changes to 60 when updated, although probably server-side configurable. (required) (default to 0).</param>
-        /// <param name="slot">slot (required).</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
-        public InviteMessage(bool canBeUpdated = true, string id = default(string), string message = default(string), InviteMessageType messageType = default(InviteMessageType), int remainingCooldownMinutes = 0, int slot = default(int), DateTime updatedAt = default(DateTime))
+        /// <param name="canBeUpdated">canBeUpdated (default to true).</param>
+        /// <param name="id">id.</param>
+        /// <param name="message">message.</param>
+        /// <param name="messageType">messageType.</param>
+        /// <param name="remainingCooldownMinutes">Changes to 60 when updated, although probably server-side configurable. (default to 0).</param>
+        /// <param name="slot">slot.</param>
+        /// <param name="updatedAt">updatedAt.</param>
+        public InviteMessage(bool canBeUpdated = true, string id = default(string), string message = default(string), InviteMessageType? messageType = default(InviteMessageType?), int remainingCooldownMinutes = 0, int slot = default(int), DateTime updatedAt = default(DateTime))
         {
             this.CanBeUpdated = canBeUpdated;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for InviteMessage and cannot be null");
-            }
             this.Id = id;
-            // to ensure "message" is required (not null)
-            if (message == null)
-            {
-                throw new ArgumentNullException("message is a required property for InviteMessage and cannot be null");
-            }
             this.Message = message;
             this.MessageType = messageType;
             this.RemainingCooldownMinutes = remainingCooldownMinutes;
@@ -76,38 +61,38 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CanBeUpdated
         /// </summary>
-        [DataMember(Name = "canBeUpdated", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "canBeUpdated", EmitDefaultValue = true)]
         public bool CanBeUpdated { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
         /// Changes to 60 when updated, although probably server-side configurable.
         /// </summary>
         /// <value>Changes to 60 when updated, although probably server-side configurable.</value>
-        [DataMember(Name = "remainingCooldownMinutes", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "remainingCooldownMinutes", EmitDefaultValue = false)]
         public int RemainingCooldownMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets Slot
         /// </summary>
-        [DataMember(Name = "slot", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "slot", EmitDefaultValue = false)]
         public int Slot { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>

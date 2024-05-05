@@ -34,39 +34,24 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationDetailInviteResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected NotificationDetailInviteResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationDetailInviteResponse" /> class.
-        /// </summary>
-        /// <param name="inResponseTo">inResponseTo (required).</param>
-        /// <param name="responseMessage">responseMessage (required).</param>
+        /// <param name="inResponseTo">inResponseTo.</param>
+        /// <param name="responseMessage">responseMessage.</param>
         public NotificationDetailInviteResponse(string inResponseTo = default(string), string responseMessage = default(string))
         {
-            // to ensure "inResponseTo" is required (not null)
-            if (inResponseTo == null)
-            {
-                throw new ArgumentNullException("inResponseTo is a required property for NotificationDetailInviteResponse and cannot be null");
-            }
             this.InResponseTo = inResponseTo;
-            // to ensure "responseMessage" is required (not null)
-            if (responseMessage == null)
-            {
-                throw new ArgumentNullException("responseMessage is a required property for NotificationDetailInviteResponse and cannot be null");
-            }
             this.ResponseMessage = responseMessage;
         }
 
         /// <summary>
         /// Gets or Sets InResponseTo
         /// </summary>
-        [DataMember(Name = "inResponseTo", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "inResponseTo", EmitDefaultValue = false)]
         public string InResponseTo { get; set; }
 
         /// <summary>
         /// Gets or Sets ResponseMessage
         /// </summary>
-        [DataMember(Name = "responseMessage", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "responseMessage", EmitDefaultValue = false)]
         public string ResponseMessage { get; set; }
 
         /// <summary>

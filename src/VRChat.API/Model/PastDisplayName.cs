@@ -34,20 +34,10 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PastDisplayName() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
-        /// </summary>
-        /// <param name="displayName">displayName (required).</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
+        /// <param name="displayName">displayName.</param>
+        /// <param name="updatedAt">updatedAt.</param>
         public PastDisplayName(string displayName = default(string), DateTime updatedAt = default(DateTime))
         {
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for PastDisplayName and cannot be null");
-            }
             this.DisplayName = displayName;
             this.UpdatedAt = updatedAt;
         }
@@ -55,13 +45,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updated_at", EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>

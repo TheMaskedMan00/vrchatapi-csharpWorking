@@ -67,19 +67,14 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Command
         /// </summary>
-        [DataMember(Name = "command", IsRequired = true, EmitDefaultValue = true)]
-        public CommandEnum Command { get; set; }
+        [DataMember(Name = "command", EmitDefaultValue = false)]
+        public CommandEnum? Command { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPushDataClickable" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InfoPushDataClickable() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InfoPushDataClickable" /> class.
-        /// </summary>
-        /// <param name="command">command (required).</param>
+        /// <param name="command">command.</param>
         /// <param name="parameters">In case of OpenURL, this would contain the link..</param>
-        public InfoPushDataClickable(CommandEnum command = default(CommandEnum), List<string> parameters = default(List<string>))
+        public InfoPushDataClickable(CommandEnum? command = default(CommandEnum?), List<string> parameters = default(List<string>))
         {
             this.Command = command;
             this.Parameters = parameters;

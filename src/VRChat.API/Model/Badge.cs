@@ -34,48 +34,23 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Badge" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Badge() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Badge" /> class.
-        /// </summary>
         /// <param name="assignedAt">only present in CurrentUser badges.</param>
-        /// <param name="badgeDescription">badgeDescription (required).</param>
-        /// <param name="badgeId">badgeId (required).</param>
-        /// <param name="badgeImageUrl">direct url to image (required).</param>
-        /// <param name="badgeName">badgeName (required).</param>
+        /// <param name="badgeDescription">badgeDescription.</param>
+        /// <param name="badgeId">badgeId.</param>
+        /// <param name="badgeImageUrl">direct url to image.</param>
+        /// <param name="badgeName">badgeName.</param>
         /// <param name="hidden">only present in CurrentUser badges.</param>
-        /// <param name="showcased">showcased (required).</param>
+        /// <param name="showcased">showcased.</param>
         /// <param name="updatedAt">only present in CurrentUser badges.</param>
         public Badge(DateTime? assignedAt = default(DateTime?), string badgeDescription = default(string), string badgeId = default(string), string badgeImageUrl = default(string), string badgeName = default(string), bool? hidden = default(bool?), bool showcased = default(bool), DateTime? updatedAt = default(DateTime?))
         {
-            // to ensure "badgeDescription" is required (not null)
-            if (badgeDescription == null)
-            {
-                throw new ArgumentNullException("badgeDescription is a required property for Badge and cannot be null");
-            }
-            this.BadgeDescription = badgeDescription;
-            // to ensure "badgeId" is required (not null)
-            if (badgeId == null)
-            {
-                throw new ArgumentNullException("badgeId is a required property for Badge and cannot be null");
-            }
-            this.BadgeId = badgeId;
-            // to ensure "badgeImageUrl" is required (not null)
-            if (badgeImageUrl == null)
-            {
-                throw new ArgumentNullException("badgeImageUrl is a required property for Badge and cannot be null");
-            }
-            this.BadgeImageUrl = badgeImageUrl;
-            // to ensure "badgeName" is required (not null)
-            if (badgeName == null)
-            {
-                throw new ArgumentNullException("badgeName is a required property for Badge and cannot be null");
-            }
-            this.BadgeName = badgeName;
-            this.Showcased = showcased;
             this.AssignedAt = assignedAt;
+            this.BadgeDescription = badgeDescription;
+            this.BadgeId = badgeId;
+            this.BadgeImageUrl = badgeImageUrl;
+            this.BadgeName = badgeName;
             this.Hidden = hidden;
+            this.Showcased = showcased;
             this.UpdatedAt = updatedAt;
         }
 
@@ -89,26 +64,26 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets BadgeDescription
         /// </summary>
-        [DataMember(Name = "badgeDescription", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "badgeDescription", EmitDefaultValue = false)]
         public string BadgeDescription { get; set; }
 
         /// <summary>
         /// Gets or Sets BadgeId
         /// </summary>
-        [DataMember(Name = "badgeId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "badgeId", EmitDefaultValue = false)]
         public string BadgeId { get; set; }
 
         /// <summary>
         /// direct url to image
         /// </summary>
         /// <value>direct url to image</value>
-        [DataMember(Name = "badgeImageUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "badgeImageUrl", EmitDefaultValue = false)]
         public string BadgeImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets BadgeName
         /// </summary>
-        [DataMember(Name = "badgeName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "badgeName", EmitDefaultValue = false)]
         public string BadgeName { get; set; }
 
         /// <summary>
@@ -121,7 +96,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Showcased
         /// </summary>
-        [DataMember(Name = "showcased", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "showcased", EmitDefaultValue = true)]
         public bool Showcased { get; set; }
 
         /// <summary>

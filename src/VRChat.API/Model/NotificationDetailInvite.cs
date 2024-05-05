@@ -34,29 +34,14 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationDetailInvite" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected NotificationDetailInvite() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationDetailInvite" /> class.
-        /// </summary>
         /// <param name="inviteMessage">inviteMessage.</param>
-        /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        /// <param name="worldName">worldName (required).</param>
+        /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
+        /// <param name="worldName">worldName.</param>
         public NotificationDetailInvite(string inviteMessage = default(string), string worldId = default(string), string worldName = default(string))
         {
-            // to ensure "worldId" is required (not null)
-            if (worldId == null)
-            {
-                throw new ArgumentNullException("worldId is a required property for NotificationDetailInvite and cannot be null");
-            }
-            this.WorldId = worldId;
-            // to ensure "worldName" is required (not null)
-            if (worldName == null)
-            {
-                throw new ArgumentNullException("worldName is a required property for NotificationDetailInvite and cannot be null");
-            }
-            this.WorldName = worldName;
             this.InviteMessage = inviteMessage;
+            this.WorldId = worldId;
+            this.WorldName = worldName;
         }
 
         /// <summary>
@@ -69,13 +54,13 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "worldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "worldId", EmitDefaultValue = false)]
         public string WorldId { get; set; }
 
         /// <summary>
         /// Gets or Sets WorldName
         /// </summary>
-        [DataMember(Name = "worldName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "worldName", EmitDefaultValue = false)]
         public string WorldName { get; set; }
 
         /// <summary>

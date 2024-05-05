@@ -35,65 +35,45 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Period
         /// </summary>
-        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = true)]
-        public SubscriptionPeriod Period { get; set; }
+        [DataMember(Name = "period", EmitDefaultValue = false)]
+        public SubscriptionPeriod? Period { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Subscription" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Subscription() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Subscription" /> class.
-        /// </summary>
-        /// <param name="id">id (required).</param>
-        /// <param name="steamItemId">steamItemId (required).</param>
+        /// <param name="id">id.</param>
+        /// <param name="steamItemId">steamItemId.</param>
         /// <param name="oculusSku">oculusSku.</param>
         /// <param name="googleProductId">googleProductId.</param>
         /// <param name="googlePlanId">googlePlanId.</param>
         /// <param name="picoSku">picoSku.</param>
-        /// <param name="amount">amount (required).</param>
-        /// <param name="description">description (required).</param>
-        /// <param name="period">period (required).</param>
-        /// <param name="tier">tier (required).</param>
-        public Subscription(string id = default(string), string steamItemId = default(string), string oculusSku = default(string), string googleProductId = default(string), string googlePlanId = default(string), string picoSku = default(string), decimal amount = default(decimal), string description = default(string), SubscriptionPeriod period = default(SubscriptionPeriod), decimal tier = default(decimal))
+        /// <param name="amount">amount.</param>
+        /// <param name="description">description.</param>
+        /// <param name="period">period.</param>
+        /// <param name="tier">tier.</param>
+        public Subscription(string id = default(string), string steamItemId = default(string), string oculusSku = default(string), string googleProductId = default(string), string googlePlanId = default(string), string picoSku = default(string), decimal amount = default(decimal), string description = default(string), SubscriptionPeriod? period = default(SubscriptionPeriod?), decimal tier = default(decimal))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Subscription and cannot be null");
-            }
             this.Id = id;
-            // to ensure "steamItemId" is required (not null)
-            if (steamItemId == null)
-            {
-                throw new ArgumentNullException("steamItemId is a required property for Subscription and cannot be null");
-            }
             this.SteamItemId = steamItemId;
-            this.Amount = amount;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for Subscription and cannot be null");
-            }
-            this.Description = description;
-            this.Period = period;
-            this.Tier = tier;
             this.OculusSku = oculusSku;
             this.GoogleProductId = googleProductId;
             this.GooglePlanId = googlePlanId;
             this.PicoSku = picoSku;
+            this.Amount = amount;
+            this.Description = description;
+            this.Period = period;
+            this.Tier = tier;
         }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets SteamItemId
         /// </summary>
-        [DataMember(Name = "steamItemId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "steamItemId", EmitDefaultValue = false)]
         public string SteamItemId { get; set; }
 
         /// <summary>
@@ -123,19 +103,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
-        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
         public decimal Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Tier
         /// </summary>
-        [DataMember(Name = "tier", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tier", EmitDefaultValue = false)]
         public decimal Tier { get; set; }
 
         /// <summary>

@@ -34,65 +34,40 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LicenseGroup" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected LicenseGroup() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LicenseGroup" /> class.
-        /// </summary>
-        /// <param name="id">id (required).</param>
-        /// <param name="name">name (required).</param>
-        /// <param name="description">description (required).</param>
-        /// <param name="licenses">licenses (required).</param>
+        /// <param name="id">id.</param>
+        /// <param name="name">name.</param>
+        /// <param name="description">description.</param>
+        /// <param name="licenses">licenses.</param>
         public LicenseGroup(string id = default(string), string name = default(string), string description = default(string), List<License> licenses = default(List<License>))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for LicenseGroup and cannot be null");
-            }
             this.Id = id;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for LicenseGroup and cannot be null");
-            }
             this.Name = name;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for LicenseGroup and cannot be null");
-            }
             this.Description = description;
-            // to ensure "licenses" is required (not null)
-            if (licenses == null)
-            {
-                throw new ArgumentNullException("licenses is a required property for LicenseGroup and cannot be null");
-            }
             this.Licenses = licenses;
         }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Licenses
         /// </summary>
-        [DataMember(Name = "licenses", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "licenses", EmitDefaultValue = false)]
         public List<License> Licenses { get; set; }
 
         /// <summary>

@@ -34,47 +34,32 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="APIHealth" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected APIHealth() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="APIHealth" /> class.
-        /// </summary>
-        /// <param name="ok">ok (required).</param>
-        /// <param name="serverName">serverName (required).</param>
-        /// <param name="buildVersionTag">buildVersionTag (required).</param>
+        /// <param name="ok">ok.</param>
+        /// <param name="serverName">serverName.</param>
+        /// <param name="buildVersionTag">buildVersionTag.</param>
         public APIHealth(bool ok = default(bool), string serverName = default(string), string buildVersionTag = default(string))
         {
             this.Ok = ok;
-            // to ensure "serverName" is required (not null)
-            if (serverName == null)
-            {
-                throw new ArgumentNullException("serverName is a required property for APIHealth and cannot be null");
-            }
             this.ServerName = serverName;
-            // to ensure "buildVersionTag" is required (not null)
-            if (buildVersionTag == null)
-            {
-                throw new ArgumentNullException("buildVersionTag is a required property for APIHealth and cannot be null");
-            }
             this.BuildVersionTag = buildVersionTag;
         }
 
         /// <summary>
         /// Gets or Sets Ok
         /// </summary>
-        [DataMember(Name = "ok", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ok", EmitDefaultValue = true)]
         public bool Ok { get; set; }
 
         /// <summary>
         /// Gets or Sets ServerName
         /// </summary>
-        [DataMember(Name = "serverName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "serverName", EmitDefaultValue = false)]
         public string ServerName { get; set; }
 
         /// <summary>
         /// Gets or Sets BuildVersionTag
         /// </summary>
-        [DataMember(Name = "buildVersionTag", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buildVersionTag", EmitDefaultValue = false)]
         public string BuildVersionTag { get; set; }
 
         /// <summary>

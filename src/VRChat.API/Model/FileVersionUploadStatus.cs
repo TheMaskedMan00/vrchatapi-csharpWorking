@@ -34,82 +34,57 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileVersionUploadStatus" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FileVersionUploadStatus() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileVersionUploadStatus" /> class.
-        /// </summary>
-        /// <param name="uploadId">uploadId (required).</param>
-        /// <param name="fileName">fileName (required).</param>
-        /// <param name="nextPartNumber">nextPartNumber (required).</param>
-        /// <param name="maxParts">maxParts (required).</param>
-        /// <param name="parts">parts (required).</param>
-        /// <param name="etags">Unknown (required).</param>
+        /// <param name="uploadId">uploadId.</param>
+        /// <param name="fileName">fileName.</param>
+        /// <param name="nextPartNumber">nextPartNumber.</param>
+        /// <param name="maxParts">maxParts.</param>
+        /// <param name="parts">parts.</param>
+        /// <param name="etags">Unknown.</param>
         public FileVersionUploadStatus(string uploadId = default(string), string fileName = default(string), decimal nextPartNumber = default(decimal), decimal maxParts = default(decimal), List<Object> parts = default(List<Object>), List<Object> etags = default(List<Object>))
         {
-            // to ensure "uploadId" is required (not null)
-            if (uploadId == null)
-            {
-                throw new ArgumentNullException("uploadId is a required property for FileVersionUploadStatus and cannot be null");
-            }
             this.UploadId = uploadId;
-            // to ensure "fileName" is required (not null)
-            if (fileName == null)
-            {
-                throw new ArgumentNullException("fileName is a required property for FileVersionUploadStatus and cannot be null");
-            }
             this.FileName = fileName;
             this.NextPartNumber = nextPartNumber;
             this.MaxParts = maxParts;
-            // to ensure "parts" is required (not null)
-            if (parts == null)
-            {
-                throw new ArgumentNullException("parts is a required property for FileVersionUploadStatus and cannot be null");
-            }
             this.Parts = parts;
-            // to ensure "etags" is required (not null)
-            if (etags == null)
-            {
-                throw new ArgumentNullException("etags is a required property for FileVersionUploadStatus and cannot be null");
-            }
             this.Etags = etags;
         }
 
         /// <summary>
         /// Gets or Sets UploadId
         /// </summary>
-        [DataMember(Name = "uploadId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "uploadId", EmitDefaultValue = false)]
         public string UploadId { get; set; }
 
         /// <summary>
         /// Gets or Sets FileName
         /// </summary>
-        [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fileName", EmitDefaultValue = false)]
         public string FileName { get; set; }
 
         /// <summary>
         /// Gets or Sets NextPartNumber
         /// </summary>
-        [DataMember(Name = "nextPartNumber", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nextPartNumber", EmitDefaultValue = false)]
         public decimal NextPartNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxParts
         /// </summary>
-        [DataMember(Name = "maxParts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "maxParts", EmitDefaultValue = false)]
         public decimal MaxParts { get; set; }
 
         /// <summary>
         /// Gets or Sets Parts
         /// </summary>
-        [DataMember(Name = "parts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "parts", EmitDefaultValue = false)]
         public List<Object> Parts { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "etags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "etags", EmitDefaultValue = false)]
         public List<Object> Etags { get; set; }
 
         /// <summary>

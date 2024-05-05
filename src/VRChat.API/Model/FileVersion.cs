@@ -35,38 +35,33 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public FileStatus Status { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public FileStatus? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FileVersion" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FileVersion() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileVersion" /> class.
-        /// </summary>
-        /// <param name="createdAt">createdAt (required).</param>
+        /// <param name="createdAt">createdAt.</param>
         /// <param name="deleted">Usually only present if &#x60;true&#x60; (default to true).</param>
         /// <param name="delta">delta.</param>
         /// <param name="file">file.</param>
         /// <param name="signature">signature.</param>
-        /// <param name="status">status (required).</param>
-        /// <param name="version">Incremental version counter, can only be increased. (required) (default to 0).</param>
-        public FileVersion(DateTime createdAt = default(DateTime), bool deleted = true, FileData delta = default(FileData), FileData file = default(FileData), FileData signature = default(FileData), FileStatus status = default(FileStatus), int version = 0)
+        /// <param name="status">status.</param>
+        /// <param name="version">Incremental version counter, can only be increased. (default to 0).</param>
+        public FileVersion(DateTime createdAt = default(DateTime), bool deleted = true, FileData delta = default(FileData), FileData file = default(FileData), FileData signature = default(FileData), FileStatus? status = default(FileStatus?), int version = 0)
         {
             this.CreatedAt = createdAt;
-            this.Status = status;
-            this._Version = version;
             this.Deleted = deleted;
             this.Delta = delta;
             this.File = file;
             this.Signature = signature;
+            this.Status = status;
+            this._Version = version;
         }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "created_at", EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
@@ -98,7 +93,7 @@ namespace VRChat.API.Model
         /// Incremental version counter, can only be increased.
         /// </summary>
         /// <value>Incremental version counter, can only be increased.</value>
-        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "version", EmitDefaultValue = false)]
         public int _Version { get; set; }
 
         /// <summary>

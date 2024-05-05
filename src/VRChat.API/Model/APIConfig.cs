@@ -35,182 +35,113 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DeploymentGroup
         /// </summary>
-        [DataMember(Name = "deploymentGroup", IsRequired = true, EmitDefaultValue = true)]
-        public DeploymentGroup DeploymentGroup { get; set; }
+        [DataMember(Name = "deploymentGroup", EmitDefaultValue = false)]
+        public DeploymentGroup? DeploymentGroup { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfig" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected APIConfig() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="APIConfig" /> class.
-        /// </summary>
-        /// <param name="voiceEnableDegradation">Unknown, probably voice optimization testing (required) (default to false).</param>
-        /// <param name="voiceEnableReceiverLimiting">Unknown, probably voice optimization testing (required) (default to true).</param>
-        /// <param name="address">VRChat&#39;s office address (required).</param>
-        /// <param name="announcements">Public Announcements (required).</param>
-        /// <param name="appName">Game name (required) (default to &quot;VrChat&quot;).</param>
-        /// <param name="buildVersionTag">Build tag of the API server (required).</param>
-        /// <param name="clientApiKey">apiKey to be used for all other requests (required).</param>
-        /// <param name="clientBPSCeiling">Unknown (required) (default to 18432).</param>
-        /// <param name="clientDisconnectTimeout">Unknown (required) (default to 30000).</param>
-        /// <param name="clientReservedPlayerBPS">Unknown (required) (default to 7168).</param>
-        /// <param name="clientSentCountAllowance">Unknown (required) (default to 15).</param>
-        /// <param name="contactEmail">VRChat&#39;s contact email (required).</param>
-        /// <param name="copyrightEmail">VRChat&#39;s copyright-issues-related email (required).</param>
-        /// <param name="currentTOSVersion">Current version number of the Terms of Service (required).</param>
-        /// <param name="defaultAvatar">defaultAvatar (required).</param>
-        /// <param name="deploymentGroup">deploymentGroup (required).</param>
-        /// <param name="devAppVersionStandalone">Version number for game development build (required).</param>
-        /// <param name="devDownloadLinkWindows">Developer Download link (required).</param>
-        /// <param name="devSdkUrl">Link to download the development SDK, use downloadUrls instead (required).</param>
-        /// <param name="devSdkVersion">Version of the development SDK (required).</param>
-        /// <param name="devServerVersionStandalone">Version number for server development build (required).</param>
-        /// <param name="disCountdown">Unknown, \&quot;dis\&quot; maybe for disconnect? (required).</param>
-        /// <param name="disableAvatarCopying">Toggles if copying avatars should be disabled (required) (default to false).</param>
-        /// <param name="disableAvatarGating">Toggles if avatar gating should be disabled. Avatar gating restricts uploading of avatars to people with the &#x60;system_avatar_access&#x60; Tag or &#x60;admin_avatar_access&#x60; Tag (required) (default to false).</param>
-        /// <param name="disableCommunityLabs">Toggles if the Community Labs should be disabled (required) (default to false).</param>
-        /// <param name="disableCommunityLabsPromotion">Toggles if promotion out of Community Labs should be disabled (required) (default to false).</param>
-        /// <param name="disableEmail">Unknown (required) (default to false).</param>
-        /// <param name="disableEventStream">Toggles if Analytics should be disabled. (required) (default to false).</param>
-        /// <param name="disableFeedbackGating">Toggles if feedback gating should be disabled. Feedback gating restricts submission of feedback (reporting a World or User) to people with the &#x60;system_feedback_access&#x60; Tag. (required) (default to false).</param>
-        /// <param name="disableFrontendBuilds">Unknown, probably toggles compilation of frontend web builds? So internal flag? (required) (default to false).</param>
-        /// <param name="disableHello">Unknown (required) (default to false).</param>
-        /// <param name="disableOculusSubs">Toggles if signing up for Subscriptions in Oculus is disabled or not. (required) (default to false).</param>
-        /// <param name="disableRegistration">Toggles if new user account registration should be disabled. (required) (default to false).</param>
-        /// <param name="disableSteamNetworking">Toggles if Steam Networking should be disabled. VRChat these days uses Photon Unity Networking (PUN) instead. (required) (default to true).</param>
-        /// <param name="disableTwoFactorAuth">Toggles if 2FA should be disabled. (required) (default to false).</param>
-        /// <param name="disableUdon">Toggles if Udon should be universally disabled in-game. (required) (default to false).</param>
-        /// <param name="disableUpgradeAccount">Toggles if account upgrading \&quot;linking with Steam/Oculus\&quot; should be disabled. (required) (default to false).</param>
-        /// <param name="downloadLinkWindows">Download link for game on the Oculus Rift website. (required).</param>
-        /// <param name="downloadUrls">downloadUrls (required).</param>
-        /// <param name="dynamicWorldRows">Array of DynamicWorldRow objects, used by the game to display the list of world rows (required).</param>
-        /// <param name="events">events (required).</param>
-        /// <param name="gearDemoRoomId">Unknown (required).</param>
-        /// <param name="homeWorldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        /// <param name="homepageRedirectTarget">Redirect target if you try to open the base API domain in your browser (required) (default to &quot;https://hello.vrchat.com&quot;).</param>
-        /// <param name="hubWorldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        /// <param name="jobsEmail">VRChat&#39;s job application email (required).</param>
-        /// <param name="messageOfTheDay">MOTD (required).</param>
-        /// <param name="moderationEmail">VRChat&#39;s moderation related email (required).</param>
-        /// <param name="moderationQueryPeriod">Unknown (required).</param>
-        /// <param name="notAllowedToSelectAvatarInPrivateWorldMessage">Used in-game to notify a user they aren&#39;t allowed to select avatars in private worlds (required).</param>
-        /// <param name="plugin">Extra [plugin](https://doc.photonengine.com/en-us/server/current/plugins/manual) to run in each instance (required).</param>
-        /// <param name="releaseAppVersionStandalone">Version number for game release build (required).</param>
-        /// <param name="releaseSdkUrl">Link to download the release SDK (required).</param>
-        /// <param name="releaseSdkVersion">Version of the release SDK (required).</param>
-        /// <param name="releaseServerVersionStandalone">Version number for server release build (required).</param>
-        /// <param name="sdkDeveloperFaqUrl">Link to the developer FAQ (required).</param>
-        /// <param name="sdkDiscordUrl">Link to the official VRChat Discord (required).</param>
-        /// <param name="sdkNotAllowedToPublishMessage">Used in the SDK to notify a user they aren&#39;t allowed to upload avatars/worlds yet (required).</param>
-        /// <param name="sdkUnityVersion">Unity version supported by the SDK (required).</param>
-        /// <param name="serverName">Server name of the API server currently responding (required).</param>
-        /// <param name="supportEmail">VRChat&#39;s support email (required).</param>
-        /// <param name="timeOutWorldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        /// <param name="tutorialWorldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        /// <param name="updateRateMsMaximum">Unknown (required).</param>
-        /// <param name="updateRateMsMinimum">Unknown (required).</param>
-        /// <param name="updateRateMsNormal">Unknown (required).</param>
-        /// <param name="updateRateMsUdonManual">Unknown (required).</param>
-        /// <param name="uploadAnalysisPercent">Unknown (required).</param>
-        /// <param name="urlList">List of allowed URLs that bypass the \&quot;Allow untrusted URL&#39;s\&quot; setting in-game (required).</param>
-        /// <param name="useReliableUdpForVoice">Unknown (required) (default to false).</param>
-        /// <param name="userUpdatePeriod">Unknown (required).</param>
-        /// <param name="userVerificationDelay">Unknown (required).</param>
-        /// <param name="userVerificationRetry">Unknown (required).</param>
-        /// <param name="userVerificationTimeout">Unknown (required).</param>
-        /// <param name="viveWindowsUrl">Download link for game on the Steam website. (required).</param>
-        /// <param name="whiteListedAssetUrls">List of allowed URLs that are allowed to host avatar assets (required).</param>
-        /// <param name="worldUpdatePeriod">Unknown (required).</param>
-        /// <param name="playerUrlResolverHash">Currently used youtube-dl.exe hash in SHA-256-delimited format (required).</param>
-        /// <param name="playerUrlResolverVersion">Currently used youtube-dl.exe version (required).</param>
-        public APIConfig(bool voiceEnableDegradation = false, bool voiceEnableReceiverLimiting = true, string address = default(string), List<APIConfigAnnouncement> announcements = default(List<APIConfigAnnouncement>), string appName = "VrChat", string buildVersionTag = default(string), string clientApiKey = default(string), int clientBPSCeiling = 18432, int clientDisconnectTimeout = 30000, int clientReservedPlayerBPS = 7168, int clientSentCountAllowance = 15, string contactEmail = default(string), string copyrightEmail = default(string), int currentTOSVersion = default(int), string defaultAvatar = default(string), DeploymentGroup deploymentGroup = default(DeploymentGroup), string devAppVersionStandalone = default(string), string devDownloadLinkWindows = default(string), string devSdkUrl = default(string), string devSdkVersion = default(string), string devServerVersionStandalone = default(string), DateTime disCountdown = default(DateTime), bool disableAvatarCopying = false, bool disableAvatarGating = false, bool disableCommunityLabs = false, bool disableCommunityLabsPromotion = false, bool disableEmail = false, bool disableEventStream = false, bool disableFeedbackGating = false, bool disableFrontendBuilds = false, bool disableHello = false, bool disableOculusSubs = false, bool disableRegistration = false, bool disableSteamNetworking = true, bool disableTwoFactorAuth = false, bool disableUdon = false, bool disableUpgradeAccount = false, string downloadLinkWindows = default(string), APIConfigDownloadURLList downloadUrls = default(APIConfigDownloadURLList), List<DynamicContentRow> dynamicWorldRows = default(List<DynamicContentRow>), APIConfigEvents events = default(APIConfigEvents), string gearDemoRoomId = default(string), string homeWorldId = default(string), string homepageRedirectTarget = "https://hello.vrchat.com", string hubWorldId = default(string), string jobsEmail = default(string), string messageOfTheDay = default(string), string moderationEmail = default(string), int moderationQueryPeriod = default(int), string notAllowedToSelectAvatarInPrivateWorldMessage = default(string), string plugin = default(string), string releaseAppVersionStandalone = default(string), string releaseSdkUrl = default(string), string releaseSdkVersion = default(string), string releaseServerVersionStandalone = default(string), string sdkDeveloperFaqUrl = default(string), string sdkDiscordUrl = default(string), string sdkNotAllowedToPublishMessage = default(string), string sdkUnityVersion = default(string), string serverName = default(string), string supportEmail = default(string), string timeOutWorldId = default(string), string tutorialWorldId = default(string), int updateRateMsMaximum = default(int), int updateRateMsMinimum = default(int), int updateRateMsNormal = default(int), int updateRateMsUdonManual = default(int), int uploadAnalysisPercent = default(int), List<string> urlList = default(List<string>), bool useReliableUdpForVoice = false, int userUpdatePeriod = default(int), int userVerificationDelay = default(int), int userVerificationRetry = default(int), int userVerificationTimeout = default(int), string viveWindowsUrl = default(string), List<string> whiteListedAssetUrls = default(List<string>), int worldUpdatePeriod = default(int), string playerUrlResolverHash = default(string), string playerUrlResolverVersion = default(string))
+        /// <param name="voiceEnableDegradation">Unknown, probably voice optimization testing (default to false).</param>
+        /// <param name="voiceEnableReceiverLimiting">Unknown, probably voice optimization testing (default to true).</param>
+        /// <param name="address">VRChat&#39;s office address.</param>
+        /// <param name="announcements">Public Announcements.</param>
+        /// <param name="appName">Game name (default to &quot;VrChat&quot;).</param>
+        /// <param name="buildVersionTag">Build tag of the API server.</param>
+        /// <param name="clientApiKey">apiKey to be used for all other requests.</param>
+        /// <param name="clientBPSCeiling">Unknown (default to 18432).</param>
+        /// <param name="clientDisconnectTimeout">Unknown (default to 30000).</param>
+        /// <param name="clientReservedPlayerBPS">Unknown (default to 7168).</param>
+        /// <param name="clientSentCountAllowance">Unknown (default to 15).</param>
+        /// <param name="contactEmail">VRChat&#39;s contact email.</param>
+        /// <param name="copyrightEmail">VRChat&#39;s copyright-issues-related email.</param>
+        /// <param name="currentTOSVersion">Current version number of the Terms of Service.</param>
+        /// <param name="defaultAvatar">defaultAvatar.</param>
+        /// <param name="deploymentGroup">deploymentGroup.</param>
+        /// <param name="devAppVersionStandalone">Version number for game development build.</param>
+        /// <param name="devDownloadLinkWindows">Developer Download link.</param>
+        /// <param name="devSdkUrl">Link to download the development SDK, use downloadUrls instead.</param>
+        /// <param name="devSdkVersion">Version of the development SDK.</param>
+        /// <param name="devServerVersionStandalone">Version number for server development build.</param>
+        /// <param name="disCountdown">Unknown, \&quot;dis\&quot; maybe for disconnect?.</param>
+        /// <param name="disableAvatarCopying">Toggles if copying avatars should be disabled (default to false).</param>
+        /// <param name="disableAvatarGating">Toggles if avatar gating should be disabled. Avatar gating restricts uploading of avatars to people with the &#x60;system_avatar_access&#x60; Tag or &#x60;admin_avatar_access&#x60; Tag (default to false).</param>
+        /// <param name="disableCommunityLabs">Toggles if the Community Labs should be disabled (default to false).</param>
+        /// <param name="disableCommunityLabsPromotion">Toggles if promotion out of Community Labs should be disabled (default to false).</param>
+        /// <param name="disableEmail">Unknown (default to false).</param>
+        /// <param name="disableEventStream">Toggles if Analytics should be disabled. (default to false).</param>
+        /// <param name="disableFeedbackGating">Toggles if feedback gating should be disabled. Feedback gating restricts submission of feedback (reporting a World or User) to people with the &#x60;system_feedback_access&#x60; Tag. (default to false).</param>
+        /// <param name="disableFrontendBuilds">Unknown, probably toggles compilation of frontend web builds? So internal flag? (default to false).</param>
+        /// <param name="disableHello">Unknown (default to false).</param>
+        /// <param name="disableOculusSubs">Toggles if signing up for Subscriptions in Oculus is disabled or not. (default to false).</param>
+        /// <param name="disableRegistration">Toggles if new user account registration should be disabled. (default to false).</param>
+        /// <param name="disableSteamNetworking">Toggles if Steam Networking should be disabled. VRChat these days uses Photon Unity Networking (PUN) instead. (default to true).</param>
+        /// <param name="disableTwoFactorAuth">Toggles if 2FA should be disabled. (default to false).</param>
+        /// <param name="disableUdon">Toggles if Udon should be universally disabled in-game. (default to false).</param>
+        /// <param name="disableUpgradeAccount">Toggles if account upgrading \&quot;linking with Steam/Oculus\&quot; should be disabled. (default to false).</param>
+        /// <param name="downloadLinkWindows">Download link for game on the Oculus Rift website..</param>
+        /// <param name="downloadUrls">downloadUrls.</param>
+        /// <param name="dynamicWorldRows">Array of DynamicWorldRow objects, used by the game to display the list of world rows.</param>
+        /// <param name="events">events.</param>
+        /// <param name="gearDemoRoomId">Unknown.</param>
+        /// <param name="homeWorldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
+        /// <param name="homepageRedirectTarget">Redirect target if you try to open the base API domain in your browser (default to &quot;https://hello.vrchat.com&quot;).</param>
+        /// <param name="hubWorldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
+        /// <param name="jobsEmail">VRChat&#39;s job application email.</param>
+        /// <param name="messageOfTheDay">MOTD.</param>
+        /// <param name="moderationEmail">VRChat&#39;s moderation related email.</param>
+        /// <param name="moderationQueryPeriod">Unknown.</param>
+        /// <param name="notAllowedToSelectAvatarInPrivateWorldMessage">Used in-game to notify a user they aren&#39;t allowed to select avatars in private worlds.</param>
+        /// <param name="plugin">Extra [plugin](https://doc.photonengine.com/en-us/server/current/plugins/manual) to run in each instance.</param>
+        /// <param name="releaseAppVersionStandalone">Version number for game release build.</param>
+        /// <param name="releaseSdkUrl">Link to download the release SDK.</param>
+        /// <param name="releaseSdkVersion">Version of the release SDK.</param>
+        /// <param name="releaseServerVersionStandalone">Version number for server release build.</param>
+        /// <param name="sdkDeveloperFaqUrl">Link to the developer FAQ.</param>
+        /// <param name="sdkDiscordUrl">Link to the official VRChat Discord.</param>
+        /// <param name="sdkNotAllowedToPublishMessage">Used in the SDK to notify a user they aren&#39;t allowed to upload avatars/worlds yet.</param>
+        /// <param name="sdkUnityVersion">Unity version supported by the SDK.</param>
+        /// <param name="serverName">Server name of the API server currently responding.</param>
+        /// <param name="supportEmail">VRChat&#39;s support email.</param>
+        /// <param name="timeOutWorldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
+        /// <param name="tutorialWorldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
+        /// <param name="updateRateMsMaximum">Unknown.</param>
+        /// <param name="updateRateMsMinimum">Unknown.</param>
+        /// <param name="updateRateMsNormal">Unknown.</param>
+        /// <param name="updateRateMsUdonManual">Unknown.</param>
+        /// <param name="uploadAnalysisPercent">Unknown.</param>
+        /// <param name="urlList">List of allowed URLs that bypass the \&quot;Allow untrusted URL&#39;s\&quot; setting in-game.</param>
+        /// <param name="useReliableUdpForVoice">Unknown (default to false).</param>
+        /// <param name="userUpdatePeriod">Unknown.</param>
+        /// <param name="userVerificationDelay">Unknown.</param>
+        /// <param name="userVerificationRetry">Unknown.</param>
+        /// <param name="userVerificationTimeout">Unknown.</param>
+        /// <param name="viveWindowsUrl">Download link for game on the Steam website..</param>
+        /// <param name="whiteListedAssetUrls">List of allowed URLs that are allowed to host avatar assets.</param>
+        /// <param name="worldUpdatePeriod">Unknown.</param>
+        /// <param name="playerUrlResolverHash">Currently used youtube-dl.exe hash in SHA-256-delimited format.</param>
+        /// <param name="playerUrlResolverVersion">Currently used youtube-dl.exe version.</param>
+        public APIConfig(bool voiceEnableDegradation = false, bool voiceEnableReceiverLimiting = true, string address = default(string), List<APIConfigAnnouncement> announcements = default(List<APIConfigAnnouncement>), string appName = "VrChat", string buildVersionTag = default(string), string clientApiKey = default(string), int clientBPSCeiling = 18432, int clientDisconnectTimeout = 30000, int clientReservedPlayerBPS = 7168, int clientSentCountAllowance = 15, string contactEmail = default(string), string copyrightEmail = default(string), int currentTOSVersion = default(int), string defaultAvatar = default(string), DeploymentGroup? deploymentGroup = default(DeploymentGroup?), string devAppVersionStandalone = default(string), string devDownloadLinkWindows = default(string), string devSdkUrl = default(string), string devSdkVersion = default(string), string devServerVersionStandalone = default(string), DateTime disCountdown = default(DateTime), bool disableAvatarCopying = false, bool disableAvatarGating = false, bool disableCommunityLabs = false, bool disableCommunityLabsPromotion = false, bool disableEmail = false, bool disableEventStream = false, bool disableFeedbackGating = false, bool disableFrontendBuilds = false, bool disableHello = false, bool disableOculusSubs = false, bool disableRegistration = false, bool disableSteamNetworking = true, bool disableTwoFactorAuth = false, bool disableUdon = false, bool disableUpgradeAccount = false, string downloadLinkWindows = default(string), APIConfigDownloadURLList downloadUrls = default(APIConfigDownloadURLList), List<DynamicContentRow> dynamicWorldRows = default(List<DynamicContentRow>), APIConfigEvents events = default(APIConfigEvents), string gearDemoRoomId = default(string), string homeWorldId = default(string), string homepageRedirectTarget = "https://hello.vrchat.com", string hubWorldId = default(string), string jobsEmail = default(string), string messageOfTheDay = default(string), string moderationEmail = default(string), int moderationQueryPeriod = default(int), string notAllowedToSelectAvatarInPrivateWorldMessage = default(string), string plugin = default(string), string releaseAppVersionStandalone = default(string), string releaseSdkUrl = default(string), string releaseSdkVersion = default(string), string releaseServerVersionStandalone = default(string), string sdkDeveloperFaqUrl = default(string), string sdkDiscordUrl = default(string), string sdkNotAllowedToPublishMessage = default(string), string sdkUnityVersion = default(string), string serverName = default(string), string supportEmail = default(string), string timeOutWorldId = default(string), string tutorialWorldId = default(string), int updateRateMsMaximum = default(int), int updateRateMsMinimum = default(int), int updateRateMsNormal = default(int), int updateRateMsUdonManual = default(int), int uploadAnalysisPercent = default(int), List<string> urlList = default(List<string>), bool useReliableUdpForVoice = false, int userUpdatePeriod = default(int), int userVerificationDelay = default(int), int userVerificationRetry = default(int), int userVerificationTimeout = default(int), string viveWindowsUrl = default(string), List<string> whiteListedAssetUrls = default(List<string>), int worldUpdatePeriod = default(int), string playerUrlResolverHash = default(string), string playerUrlResolverVersion = default(string))
         {
             this.VoiceEnableDegradation = voiceEnableDegradation;
             this.VoiceEnableReceiverLimiting = voiceEnableReceiverLimiting;
-            // to ensure "address" is required (not null)
-            if (address == null)
-            {
-                throw new ArgumentNullException("address is a required property for APIConfig and cannot be null");
-            }
             this.Address = address;
-            // to ensure "announcements" is required (not null)
-            if (announcements == null)
-            {
-                throw new ArgumentNullException("announcements is a required property for APIConfig and cannot be null");
-            }
             this.Announcements = announcements;
-            // to ensure "appName" is required (not null)
-            if (appName == null)
-            {
-                throw new ArgumentNullException("appName is a required property for APIConfig and cannot be null");
-            }
-            this.AppName = appName;
-            // to ensure "buildVersionTag" is required (not null)
-            if (buildVersionTag == null)
-            {
-                throw new ArgumentNullException("buildVersionTag is a required property for APIConfig and cannot be null");
-            }
+            // use default value if no "appName" provided
+            this.AppName = appName ?? "VrChat";
             this.BuildVersionTag = buildVersionTag;
-            // to ensure "clientApiKey" is required (not null)
-            if (clientApiKey == null)
-            {
-                throw new ArgumentNullException("clientApiKey is a required property for APIConfig and cannot be null");
-            }
             this.ClientApiKey = clientApiKey;
             this.ClientBPSCeiling = clientBPSCeiling;
             this.ClientDisconnectTimeout = clientDisconnectTimeout;
             this.ClientReservedPlayerBPS = clientReservedPlayerBPS;
             this.ClientSentCountAllowance = clientSentCountAllowance;
-            // to ensure "contactEmail" is required (not null)
-            if (contactEmail == null)
-            {
-                throw new ArgumentNullException("contactEmail is a required property for APIConfig and cannot be null");
-            }
             this.ContactEmail = contactEmail;
-            // to ensure "copyrightEmail" is required (not null)
-            if (copyrightEmail == null)
-            {
-                throw new ArgumentNullException("copyrightEmail is a required property for APIConfig and cannot be null");
-            }
             this.CopyrightEmail = copyrightEmail;
             this.CurrentTOSVersion = currentTOSVersion;
-            // to ensure "defaultAvatar" is required (not null)
-            if (defaultAvatar == null)
-            {
-                throw new ArgumentNullException("defaultAvatar is a required property for APIConfig and cannot be null");
-            }
             this.DefaultAvatar = defaultAvatar;
             this.DeploymentGroup = deploymentGroup;
-            // to ensure "devAppVersionStandalone" is required (not null)
-            if (devAppVersionStandalone == null)
-            {
-                throw new ArgumentNullException("devAppVersionStandalone is a required property for APIConfig and cannot be null");
-            }
             this.DevAppVersionStandalone = devAppVersionStandalone;
-            // to ensure "devDownloadLinkWindows" is required (not null)
-            if (devDownloadLinkWindows == null)
-            {
-                throw new ArgumentNullException("devDownloadLinkWindows is a required property for APIConfig and cannot be null");
-            }
             this.DevDownloadLinkWindows = devDownloadLinkWindows;
-            // to ensure "devSdkUrl" is required (not null)
-            if (devSdkUrl == null)
-            {
-                throw new ArgumentNullException("devSdkUrl is a required property for APIConfig and cannot be null");
-            }
             this.DevSdkUrl = devSdkUrl;
-            // to ensure "devSdkVersion" is required (not null)
-            if (devSdkVersion == null)
-            {
-                throw new ArgumentNullException("devSdkVersion is a required property for APIConfig and cannot be null");
-            }
             this.DevSdkVersion = devSdkVersion;
-            // to ensure "devServerVersionStandalone" is required (not null)
-            if (devServerVersionStandalone == null)
-            {
-                throw new ArgumentNullException("devServerVersionStandalone is a required property for APIConfig and cannot be null");
-            }
             this.DevServerVersionStandalone = devServerVersionStandalone;
             this.DisCountdown = disCountdown;
             this.DisableAvatarCopying = disableAvatarCopying;
@@ -228,197 +159,48 @@ namespace VRChat.API.Model
             this.DisableTwoFactorAuth = disableTwoFactorAuth;
             this.DisableUdon = disableUdon;
             this.DisableUpgradeAccount = disableUpgradeAccount;
-            // to ensure "downloadLinkWindows" is required (not null)
-            if (downloadLinkWindows == null)
-            {
-                throw new ArgumentNullException("downloadLinkWindows is a required property for APIConfig and cannot be null");
-            }
             this.DownloadLinkWindows = downloadLinkWindows;
-            // to ensure "downloadUrls" is required (not null)
-            if (downloadUrls == null)
-            {
-                throw new ArgumentNullException("downloadUrls is a required property for APIConfig and cannot be null");
-            }
             this.DownloadUrls = downloadUrls;
-            // to ensure "dynamicWorldRows" is required (not null)
-            if (dynamicWorldRows == null)
-            {
-                throw new ArgumentNullException("dynamicWorldRows is a required property for APIConfig and cannot be null");
-            }
             this.DynamicWorldRows = dynamicWorldRows;
-            // to ensure "events" is required (not null)
-            if (events == null)
-            {
-                throw new ArgumentNullException("events is a required property for APIConfig and cannot be null");
-            }
             this.Events = events;
-            // to ensure "gearDemoRoomId" is required (not null)
-            if (gearDemoRoomId == null)
-            {
-                throw new ArgumentNullException("gearDemoRoomId is a required property for APIConfig and cannot be null");
-            }
             this.GearDemoRoomId = gearDemoRoomId;
-            // to ensure "homeWorldId" is required (not null)
-            if (homeWorldId == null)
-            {
-                throw new ArgumentNullException("homeWorldId is a required property for APIConfig and cannot be null");
-            }
             this.HomeWorldId = homeWorldId;
-            // to ensure "homepageRedirectTarget" is required (not null)
-            if (homepageRedirectTarget == null)
-            {
-                throw new ArgumentNullException("homepageRedirectTarget is a required property for APIConfig and cannot be null");
-            }
-            this.HomepageRedirectTarget = homepageRedirectTarget;
-            // to ensure "hubWorldId" is required (not null)
-            if (hubWorldId == null)
-            {
-                throw new ArgumentNullException("hubWorldId is a required property for APIConfig and cannot be null");
-            }
+            // use default value if no "homepageRedirectTarget" provided
+            this.HomepageRedirectTarget = homepageRedirectTarget ?? "https://hello.vrchat.com";
             this.HubWorldId = hubWorldId;
-            // to ensure "jobsEmail" is required (not null)
-            if (jobsEmail == null)
-            {
-                throw new ArgumentNullException("jobsEmail is a required property for APIConfig and cannot be null");
-            }
             this.JobsEmail = jobsEmail;
-            // to ensure "messageOfTheDay" is required (not null)
-            if (messageOfTheDay == null)
-            {
-                throw new ArgumentNullException("messageOfTheDay is a required property for APIConfig and cannot be null");
-            }
             this.MessageOfTheDay = messageOfTheDay;
-            // to ensure "moderationEmail" is required (not null)
-            if (moderationEmail == null)
-            {
-                throw new ArgumentNullException("moderationEmail is a required property for APIConfig and cannot be null");
-            }
             this.ModerationEmail = moderationEmail;
             this.ModerationQueryPeriod = moderationQueryPeriod;
-            // to ensure "notAllowedToSelectAvatarInPrivateWorldMessage" is required (not null)
-            if (notAllowedToSelectAvatarInPrivateWorldMessage == null)
-            {
-                throw new ArgumentNullException("notAllowedToSelectAvatarInPrivateWorldMessage is a required property for APIConfig and cannot be null");
-            }
             this.NotAllowedToSelectAvatarInPrivateWorldMessage = notAllowedToSelectAvatarInPrivateWorldMessage;
-            // to ensure "plugin" is required (not null)
-            if (plugin == null)
-            {
-                throw new ArgumentNullException("plugin is a required property for APIConfig and cannot be null");
-            }
             this.Plugin = plugin;
-            // to ensure "releaseAppVersionStandalone" is required (not null)
-            if (releaseAppVersionStandalone == null)
-            {
-                throw new ArgumentNullException("releaseAppVersionStandalone is a required property for APIConfig and cannot be null");
-            }
             this.ReleaseAppVersionStandalone = releaseAppVersionStandalone;
-            // to ensure "releaseSdkUrl" is required (not null)
-            if (releaseSdkUrl == null)
-            {
-                throw new ArgumentNullException("releaseSdkUrl is a required property for APIConfig and cannot be null");
-            }
             this.ReleaseSdkUrl = releaseSdkUrl;
-            // to ensure "releaseSdkVersion" is required (not null)
-            if (releaseSdkVersion == null)
-            {
-                throw new ArgumentNullException("releaseSdkVersion is a required property for APIConfig and cannot be null");
-            }
             this.ReleaseSdkVersion = releaseSdkVersion;
-            // to ensure "releaseServerVersionStandalone" is required (not null)
-            if (releaseServerVersionStandalone == null)
-            {
-                throw new ArgumentNullException("releaseServerVersionStandalone is a required property for APIConfig and cannot be null");
-            }
             this.ReleaseServerVersionStandalone = releaseServerVersionStandalone;
-            // to ensure "sdkDeveloperFaqUrl" is required (not null)
-            if (sdkDeveloperFaqUrl == null)
-            {
-                throw new ArgumentNullException("sdkDeveloperFaqUrl is a required property for APIConfig and cannot be null");
-            }
             this.SdkDeveloperFaqUrl = sdkDeveloperFaqUrl;
-            // to ensure "sdkDiscordUrl" is required (not null)
-            if (sdkDiscordUrl == null)
-            {
-                throw new ArgumentNullException("sdkDiscordUrl is a required property for APIConfig and cannot be null");
-            }
             this.SdkDiscordUrl = sdkDiscordUrl;
-            // to ensure "sdkNotAllowedToPublishMessage" is required (not null)
-            if (sdkNotAllowedToPublishMessage == null)
-            {
-                throw new ArgumentNullException("sdkNotAllowedToPublishMessage is a required property for APIConfig and cannot be null");
-            }
             this.SdkNotAllowedToPublishMessage = sdkNotAllowedToPublishMessage;
-            // to ensure "sdkUnityVersion" is required (not null)
-            if (sdkUnityVersion == null)
-            {
-                throw new ArgumentNullException("sdkUnityVersion is a required property for APIConfig and cannot be null");
-            }
             this.SdkUnityVersion = sdkUnityVersion;
-            // to ensure "serverName" is required (not null)
-            if (serverName == null)
-            {
-                throw new ArgumentNullException("serverName is a required property for APIConfig and cannot be null");
-            }
             this.ServerName = serverName;
-            // to ensure "supportEmail" is required (not null)
-            if (supportEmail == null)
-            {
-                throw new ArgumentNullException("supportEmail is a required property for APIConfig and cannot be null");
-            }
             this.SupportEmail = supportEmail;
-            // to ensure "timeOutWorldId" is required (not null)
-            if (timeOutWorldId == null)
-            {
-                throw new ArgumentNullException("timeOutWorldId is a required property for APIConfig and cannot be null");
-            }
             this.TimeOutWorldId = timeOutWorldId;
-            // to ensure "tutorialWorldId" is required (not null)
-            if (tutorialWorldId == null)
-            {
-                throw new ArgumentNullException("tutorialWorldId is a required property for APIConfig and cannot be null");
-            }
             this.TutorialWorldId = tutorialWorldId;
             this.UpdateRateMsMaximum = updateRateMsMaximum;
             this.UpdateRateMsMinimum = updateRateMsMinimum;
             this.UpdateRateMsNormal = updateRateMsNormal;
             this.UpdateRateMsUdonManual = updateRateMsUdonManual;
             this.UploadAnalysisPercent = uploadAnalysisPercent;
-            // to ensure "urlList" is required (not null)
-            if (urlList == null)
-            {
-                throw new ArgumentNullException("urlList is a required property for APIConfig and cannot be null");
-            }
             this.UrlList = urlList;
             this.UseReliableUdpForVoice = useReliableUdpForVoice;
             this.UserUpdatePeriod = userUpdatePeriod;
             this.UserVerificationDelay = userVerificationDelay;
             this.UserVerificationRetry = userVerificationRetry;
             this.UserVerificationTimeout = userVerificationTimeout;
-            // to ensure "viveWindowsUrl" is required (not null)
-            if (viveWindowsUrl == null)
-            {
-                throw new ArgumentNullException("viveWindowsUrl is a required property for APIConfig and cannot be null");
-            }
             this.ViveWindowsUrl = viveWindowsUrl;
-            // to ensure "whiteListedAssetUrls" is required (not null)
-            if (whiteListedAssetUrls == null)
-            {
-                throw new ArgumentNullException("whiteListedAssetUrls is a required property for APIConfig and cannot be null");
-            }
             this.WhiteListedAssetUrls = whiteListedAssetUrls;
             this.WorldUpdatePeriod = worldUpdatePeriod;
-            // to ensure "playerUrlResolverHash" is required (not null)
-            if (playerUrlResolverHash == null)
-            {
-                throw new ArgumentNullException("playerUrlResolverHash is a required property for APIConfig and cannot be null");
-            }
             this.PlayerUrlResolverHash = playerUrlResolverHash;
-            // to ensure "playerUrlResolverVersion" is required (not null)
-            if (playerUrlResolverVersion == null)
-            {
-                throw new ArgumentNullException("playerUrlResolverVersion is a required property for APIConfig and cannot be null");
-            }
             this.PlayerUrlResolverVersion = playerUrlResolverVersion;
         }
 
@@ -426,35 +208,35 @@ namespace VRChat.API.Model
         /// Unknown, probably voice optimization testing
         /// </summary>
         /// <value>Unknown, probably voice optimization testing</value>
-        [DataMember(Name = "VoiceEnableDegradation", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "VoiceEnableDegradation", EmitDefaultValue = true)]
         public bool VoiceEnableDegradation { get; set; }
 
         /// <summary>
         /// Unknown, probably voice optimization testing
         /// </summary>
         /// <value>Unknown, probably voice optimization testing</value>
-        [DataMember(Name = "VoiceEnableReceiverLimiting", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "VoiceEnableReceiverLimiting", EmitDefaultValue = true)]
         public bool VoiceEnableReceiverLimiting { get; set; }
 
         /// <summary>
         /// VRChat&#39;s office address
         /// </summary>
         /// <value>VRChat&#39;s office address</value>
-        [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "address", EmitDefaultValue = false)]
         public string Address { get; set; }
 
         /// <summary>
         /// Public Announcements
         /// </summary>
         /// <value>Public Announcements</value>
-        [DataMember(Name = "announcements", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "announcements", EmitDefaultValue = false)]
         public List<APIConfigAnnouncement> Announcements { get; set; }
 
         /// <summary>
         /// Game name
         /// </summary>
         /// <value>Game name</value>
-        [DataMember(Name = "appName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "appName", EmitDefaultValue = false)]
         [Obsolete]
         public string AppName { get; set; }
 
@@ -462,76 +244,76 @@ namespace VRChat.API.Model
         /// Build tag of the API server
         /// </summary>
         /// <value>Build tag of the API server</value>
-        [DataMember(Name = "buildVersionTag", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buildVersionTag", EmitDefaultValue = false)]
         public string BuildVersionTag { get; set; }
 
         /// <summary>
         /// apiKey to be used for all other requests
         /// </summary>
         /// <value>apiKey to be used for all other requests</value>
-        [DataMember(Name = "clientApiKey", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientApiKey", EmitDefaultValue = false)]
         public string ClientApiKey { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "clientBPSCeiling", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientBPSCeiling", EmitDefaultValue = false)]
         public int ClientBPSCeiling { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "clientDisconnectTimeout", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientDisconnectTimeout", EmitDefaultValue = false)]
         public int ClientDisconnectTimeout { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "clientReservedPlayerBPS", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientReservedPlayerBPS", EmitDefaultValue = false)]
         public int ClientReservedPlayerBPS { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "clientSentCountAllowance", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientSentCountAllowance", EmitDefaultValue = false)]
         public int ClientSentCountAllowance { get; set; }
 
         /// <summary>
         /// VRChat&#39;s contact email
         /// </summary>
         /// <value>VRChat&#39;s contact email</value>
-        [DataMember(Name = "contactEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "contactEmail", EmitDefaultValue = false)]
         public string ContactEmail { get; set; }
 
         /// <summary>
         /// VRChat&#39;s copyright-issues-related email
         /// </summary>
         /// <value>VRChat&#39;s copyright-issues-related email</value>
-        [DataMember(Name = "copyrightEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "copyrightEmail", EmitDefaultValue = false)]
         public string CopyrightEmail { get; set; }
 
         /// <summary>
         /// Current version number of the Terms of Service
         /// </summary>
         /// <value>Current version number of the Terms of Service</value>
-        [DataMember(Name = "currentTOSVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currentTOSVersion", EmitDefaultValue = false)]
         public int CurrentTOSVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultAvatar
         /// </summary>
-        [DataMember(Name = "defaultAvatar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "defaultAvatar", EmitDefaultValue = false)]
         public string DefaultAvatar { get; set; }
 
         /// <summary>
         /// Version number for game development build
         /// </summary>
         /// <value>Version number for game development build</value>
-        [DataMember(Name = "devAppVersionStandalone", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "devAppVersionStandalone", EmitDefaultValue = false)]
         [Obsolete]
         public string DevAppVersionStandalone { get; set; }
 
@@ -539,7 +321,7 @@ namespace VRChat.API.Model
         /// Developer Download link
         /// </summary>
         /// <value>Developer Download link</value>
-        [DataMember(Name = "devDownloadLinkWindows", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "devDownloadLinkWindows", EmitDefaultValue = false)]
         [Obsolete]
         public string DevDownloadLinkWindows { get; set; }
 
@@ -547,7 +329,7 @@ namespace VRChat.API.Model
         /// Link to download the development SDK, use downloadUrls instead
         /// </summary>
         /// <value>Link to download the development SDK, use downloadUrls instead</value>
-        [DataMember(Name = "devSdkUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "devSdkUrl", EmitDefaultValue = false)]
         [Obsolete]
         public string DevSdkUrl { get; set; }
 
@@ -555,7 +337,7 @@ namespace VRChat.API.Model
         /// Version of the development SDK
         /// </summary>
         /// <value>Version of the development SDK</value>
-        [DataMember(Name = "devSdkVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "devSdkVersion", EmitDefaultValue = false)]
         [Obsolete]
         public string DevSdkVersion { get; set; }
 
@@ -563,7 +345,7 @@ namespace VRChat.API.Model
         /// Version number for server development build
         /// </summary>
         /// <value>Version number for server development build</value>
-        [DataMember(Name = "devServerVersionStandalone", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "devServerVersionStandalone", EmitDefaultValue = false)]
         [Obsolete]
         public string DevServerVersionStandalone { get; set; }
 
@@ -571,98 +353,98 @@ namespace VRChat.API.Model
         /// Unknown, \&quot;dis\&quot; maybe for disconnect?
         /// </summary>
         /// <value>Unknown, \&quot;dis\&quot; maybe for disconnect?</value>
-        [DataMember(Name = "dis-countdown", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dis-countdown", EmitDefaultValue = false)]
         public DateTime DisCountdown { get; set; }
 
         /// <summary>
         /// Toggles if copying avatars should be disabled
         /// </summary>
         /// <value>Toggles if copying avatars should be disabled</value>
-        [DataMember(Name = "disableAvatarCopying", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableAvatarCopying", EmitDefaultValue = true)]
         public bool DisableAvatarCopying { get; set; }
 
         /// <summary>
         /// Toggles if avatar gating should be disabled. Avatar gating restricts uploading of avatars to people with the &#x60;system_avatar_access&#x60; Tag or &#x60;admin_avatar_access&#x60; Tag
         /// </summary>
         /// <value>Toggles if avatar gating should be disabled. Avatar gating restricts uploading of avatars to people with the &#x60;system_avatar_access&#x60; Tag or &#x60;admin_avatar_access&#x60; Tag</value>
-        [DataMember(Name = "disableAvatarGating", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableAvatarGating", EmitDefaultValue = true)]
         public bool DisableAvatarGating { get; set; }
 
         /// <summary>
         /// Toggles if the Community Labs should be disabled
         /// </summary>
         /// <value>Toggles if the Community Labs should be disabled</value>
-        [DataMember(Name = "disableCommunityLabs", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableCommunityLabs", EmitDefaultValue = true)]
         public bool DisableCommunityLabs { get; set; }
 
         /// <summary>
         /// Toggles if promotion out of Community Labs should be disabled
         /// </summary>
         /// <value>Toggles if promotion out of Community Labs should be disabled</value>
-        [DataMember(Name = "disableCommunityLabsPromotion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableCommunityLabsPromotion", EmitDefaultValue = true)]
         public bool DisableCommunityLabsPromotion { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "disableEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableEmail", EmitDefaultValue = true)]
         public bool DisableEmail { get; set; }
 
         /// <summary>
         /// Toggles if Analytics should be disabled.
         /// </summary>
         /// <value>Toggles if Analytics should be disabled.</value>
-        [DataMember(Name = "disableEventStream", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableEventStream", EmitDefaultValue = true)]
         public bool DisableEventStream { get; set; }
 
         /// <summary>
         /// Toggles if feedback gating should be disabled. Feedback gating restricts submission of feedback (reporting a World or User) to people with the &#x60;system_feedback_access&#x60; Tag.
         /// </summary>
         /// <value>Toggles if feedback gating should be disabled. Feedback gating restricts submission of feedback (reporting a World or User) to people with the &#x60;system_feedback_access&#x60; Tag.</value>
-        [DataMember(Name = "disableFeedbackGating", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableFeedbackGating", EmitDefaultValue = true)]
         public bool DisableFeedbackGating { get; set; }
 
         /// <summary>
         /// Unknown, probably toggles compilation of frontend web builds? So internal flag?
         /// </summary>
         /// <value>Unknown, probably toggles compilation of frontend web builds? So internal flag?</value>
-        [DataMember(Name = "disableFrontendBuilds", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableFrontendBuilds", EmitDefaultValue = true)]
         public bool DisableFrontendBuilds { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "disableHello", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableHello", EmitDefaultValue = true)]
         public bool DisableHello { get; set; }
 
         /// <summary>
         /// Toggles if signing up for Subscriptions in Oculus is disabled or not.
         /// </summary>
         /// <value>Toggles if signing up for Subscriptions in Oculus is disabled or not.</value>
-        [DataMember(Name = "disableOculusSubs", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableOculusSubs", EmitDefaultValue = true)]
         public bool DisableOculusSubs { get; set; }
 
         /// <summary>
         /// Toggles if new user account registration should be disabled.
         /// </summary>
         /// <value>Toggles if new user account registration should be disabled.</value>
-        [DataMember(Name = "disableRegistration", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableRegistration", EmitDefaultValue = true)]
         public bool DisableRegistration { get; set; }
 
         /// <summary>
         /// Toggles if Steam Networking should be disabled. VRChat these days uses Photon Unity Networking (PUN) instead.
         /// </summary>
         /// <value>Toggles if Steam Networking should be disabled. VRChat these days uses Photon Unity Networking (PUN) instead.</value>
-        [DataMember(Name = "disableSteamNetworking", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableSteamNetworking", EmitDefaultValue = true)]
         public bool DisableSteamNetworking { get; set; }
 
         /// <summary>
         /// Toggles if 2FA should be disabled.
         /// </summary>
         /// <value>Toggles if 2FA should be disabled.</value>
-        [DataMember(Name = "disableTwoFactorAuth", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableTwoFactorAuth", EmitDefaultValue = true)]
         [Obsolete]
         public bool DisableTwoFactorAuth { get; set; }
 
@@ -670,47 +452,47 @@ namespace VRChat.API.Model
         /// Toggles if Udon should be universally disabled in-game.
         /// </summary>
         /// <value>Toggles if Udon should be universally disabled in-game.</value>
-        [DataMember(Name = "disableUdon", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableUdon", EmitDefaultValue = true)]
         public bool DisableUdon { get; set; }
 
         /// <summary>
         /// Toggles if account upgrading \&quot;linking with Steam/Oculus\&quot; should be disabled.
         /// </summary>
         /// <value>Toggles if account upgrading \&quot;linking with Steam/Oculus\&quot; should be disabled.</value>
-        [DataMember(Name = "disableUpgradeAccount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "disableUpgradeAccount", EmitDefaultValue = true)]
         public bool DisableUpgradeAccount { get; set; }
 
         /// <summary>
         /// Download link for game on the Oculus Rift website.
         /// </summary>
         /// <value>Download link for game on the Oculus Rift website.</value>
-        [DataMember(Name = "downloadLinkWindows", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "downloadLinkWindows", EmitDefaultValue = false)]
         public string DownloadLinkWindows { get; set; }
 
         /// <summary>
         /// Gets or Sets DownloadUrls
         /// </summary>
-        [DataMember(Name = "downloadUrls", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "downloadUrls", EmitDefaultValue = false)]
         public APIConfigDownloadURLList DownloadUrls { get; set; }
 
         /// <summary>
         /// Array of DynamicWorldRow objects, used by the game to display the list of world rows
         /// </summary>
         /// <value>Array of DynamicWorldRow objects, used by the game to display the list of world rows</value>
-        [DataMember(Name = "dynamicWorldRows", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dynamicWorldRows", EmitDefaultValue = false)]
         public List<DynamicContentRow> DynamicWorldRows { get; set; }
 
         /// <summary>
         /// Gets or Sets Events
         /// </summary>
-        [DataMember(Name = "events", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "events", EmitDefaultValue = false)]
         public APIConfigEvents Events { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "gearDemoRoomId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "gearDemoRoomId", EmitDefaultValue = false)]
         [Obsolete]
         public string GearDemoRoomId { get; set; }
 
@@ -718,35 +500,35 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "homeWorldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "homeWorldId", EmitDefaultValue = false)]
         public string HomeWorldId { get; set; }
 
         /// <summary>
         /// Redirect target if you try to open the base API domain in your browser
         /// </summary>
         /// <value>Redirect target if you try to open the base API domain in your browser</value>
-        [DataMember(Name = "homepageRedirectTarget", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "homepageRedirectTarget", EmitDefaultValue = false)]
         public string HomepageRedirectTarget { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "hubWorldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hubWorldId", EmitDefaultValue = false)]
         public string HubWorldId { get; set; }
 
         /// <summary>
         /// VRChat&#39;s job application email
         /// </summary>
         /// <value>VRChat&#39;s job application email</value>
-        [DataMember(Name = "jobsEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "jobsEmail", EmitDefaultValue = false)]
         public string JobsEmail { get; set; }
 
         /// <summary>
         /// MOTD
         /// </summary>
         /// <value>MOTD</value>
-        [DataMember(Name = "messageOfTheDay", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "messageOfTheDay", EmitDefaultValue = false)]
         [Obsolete]
         public string MessageOfTheDay { get; set; }
 
@@ -754,35 +536,35 @@ namespace VRChat.API.Model
         /// VRChat&#39;s moderation related email
         /// </summary>
         /// <value>VRChat&#39;s moderation related email</value>
-        [DataMember(Name = "moderationEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "moderationEmail", EmitDefaultValue = false)]
         public string ModerationEmail { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "moderationQueryPeriod", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "moderationQueryPeriod", EmitDefaultValue = false)]
         public int ModerationQueryPeriod { get; set; }
 
         /// <summary>
         /// Used in-game to notify a user they aren&#39;t allowed to select avatars in private worlds
         /// </summary>
         /// <value>Used in-game to notify a user they aren&#39;t allowed to select avatars in private worlds</value>
-        [DataMember(Name = "notAllowedToSelectAvatarInPrivateWorldMessage", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "notAllowedToSelectAvatarInPrivateWorldMessage", EmitDefaultValue = false)]
         public string NotAllowedToSelectAvatarInPrivateWorldMessage { get; set; }
 
         /// <summary>
         /// Extra [plugin](https://doc.photonengine.com/en-us/server/current/plugins/manual) to run in each instance
         /// </summary>
         /// <value>Extra [plugin](https://doc.photonengine.com/en-us/server/current/plugins/manual) to run in each instance</value>
-        [DataMember(Name = "plugin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "plugin", EmitDefaultValue = false)]
         public string Plugin { get; set; }
 
         /// <summary>
         /// Version number for game release build
         /// </summary>
         /// <value>Version number for game release build</value>
-        [DataMember(Name = "releaseAppVersionStandalone", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "releaseAppVersionStandalone", EmitDefaultValue = false)]
         [Obsolete]
         public string ReleaseAppVersionStandalone { get; set; }
 
@@ -790,7 +572,7 @@ namespace VRChat.API.Model
         /// Link to download the release SDK
         /// </summary>
         /// <value>Link to download the release SDK</value>
-        [DataMember(Name = "releaseSdkUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "releaseSdkUrl", EmitDefaultValue = false)]
         [Obsolete]
         public string ReleaseSdkUrl { get; set; }
 
@@ -798,7 +580,7 @@ namespace VRChat.API.Model
         /// Version of the release SDK
         /// </summary>
         /// <value>Version of the release SDK</value>
-        [DataMember(Name = "releaseSdkVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "releaseSdkVersion", EmitDefaultValue = false)]
         [Obsolete]
         public string ReleaseSdkVersion { get; set; }
 
@@ -806,7 +588,7 @@ namespace VRChat.API.Model
         /// Version number for server release build
         /// </summary>
         /// <value>Version number for server release build</value>
-        [DataMember(Name = "releaseServerVersionStandalone", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "releaseServerVersionStandalone", EmitDefaultValue = false)]
         [Obsolete]
         public string ReleaseServerVersionStandalone { get; set; }
 
@@ -814,168 +596,168 @@ namespace VRChat.API.Model
         /// Link to the developer FAQ
         /// </summary>
         /// <value>Link to the developer FAQ</value>
-        [DataMember(Name = "sdkDeveloperFaqUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sdkDeveloperFaqUrl", EmitDefaultValue = false)]
         public string SdkDeveloperFaqUrl { get; set; }
 
         /// <summary>
         /// Link to the official VRChat Discord
         /// </summary>
         /// <value>Link to the official VRChat Discord</value>
-        [DataMember(Name = "sdkDiscordUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sdkDiscordUrl", EmitDefaultValue = false)]
         public string SdkDiscordUrl { get; set; }
 
         /// <summary>
         /// Used in the SDK to notify a user they aren&#39;t allowed to upload avatars/worlds yet
         /// </summary>
         /// <value>Used in the SDK to notify a user they aren&#39;t allowed to upload avatars/worlds yet</value>
-        [DataMember(Name = "sdkNotAllowedToPublishMessage", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sdkNotAllowedToPublishMessage", EmitDefaultValue = false)]
         public string SdkNotAllowedToPublishMessage { get; set; }
 
         /// <summary>
         /// Unity version supported by the SDK
         /// </summary>
         /// <value>Unity version supported by the SDK</value>
-        [DataMember(Name = "sdkUnityVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sdkUnityVersion", EmitDefaultValue = false)]
         public string SdkUnityVersion { get; set; }
 
         /// <summary>
         /// Server name of the API server currently responding
         /// </summary>
         /// <value>Server name of the API server currently responding</value>
-        [DataMember(Name = "serverName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "serverName", EmitDefaultValue = false)]
         public string ServerName { get; set; }
 
         /// <summary>
         /// VRChat&#39;s support email
         /// </summary>
         /// <value>VRChat&#39;s support email</value>
-        [DataMember(Name = "supportEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "supportEmail", EmitDefaultValue = false)]
         public string SupportEmail { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "timeOutWorldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "timeOutWorldId", EmitDefaultValue = false)]
         public string TimeOutWorldId { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "tutorialWorldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tutorialWorldId", EmitDefaultValue = false)]
         public string TutorialWorldId { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "updateRateMsMaximum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updateRateMsMaximum", EmitDefaultValue = false)]
         public int UpdateRateMsMaximum { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "updateRateMsMinimum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updateRateMsMinimum", EmitDefaultValue = false)]
         public int UpdateRateMsMinimum { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "updateRateMsNormal", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updateRateMsNormal", EmitDefaultValue = false)]
         public int UpdateRateMsNormal { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "updateRateMsUdonManual", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updateRateMsUdonManual", EmitDefaultValue = false)]
         public int UpdateRateMsUdonManual { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "uploadAnalysisPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "uploadAnalysisPercent", EmitDefaultValue = false)]
         public int UploadAnalysisPercent { get; set; }
 
         /// <summary>
         /// List of allowed URLs that bypass the \&quot;Allow untrusted URL&#39;s\&quot; setting in-game
         /// </summary>
         /// <value>List of allowed URLs that bypass the \&quot;Allow untrusted URL&#39;s\&quot; setting in-game</value>
-        [DataMember(Name = "urlList", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "urlList", EmitDefaultValue = false)]
         public List<string> UrlList { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "useReliableUdpForVoice", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "useReliableUdpForVoice", EmitDefaultValue = true)]
         public bool UseReliableUdpForVoice { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "userUpdatePeriod", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userUpdatePeriod", EmitDefaultValue = false)]
         public int UserUpdatePeriod { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "userVerificationDelay", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userVerificationDelay", EmitDefaultValue = false)]
         public int UserVerificationDelay { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "userVerificationRetry", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userVerificationRetry", EmitDefaultValue = false)]
         public int UserVerificationRetry { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "userVerificationTimeout", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userVerificationTimeout", EmitDefaultValue = false)]
         public int UserVerificationTimeout { get; set; }
 
         /// <summary>
         /// Download link for game on the Steam website.
         /// </summary>
         /// <value>Download link for game on the Steam website.</value>
-        [DataMember(Name = "viveWindowsUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "viveWindowsUrl", EmitDefaultValue = false)]
         public string ViveWindowsUrl { get; set; }
 
         /// <summary>
         /// List of allowed URLs that are allowed to host avatar assets
         /// </summary>
         /// <value>List of allowed URLs that are allowed to host avatar assets</value>
-        [DataMember(Name = "whiteListedAssetUrls", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "whiteListedAssetUrls", EmitDefaultValue = false)]
         public List<string> WhiteListedAssetUrls { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "worldUpdatePeriod", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "worldUpdatePeriod", EmitDefaultValue = false)]
         public int WorldUpdatePeriod { get; set; }
 
         /// <summary>
         /// Currently used youtube-dl.exe hash in SHA-256-delimited format
         /// </summary>
         /// <value>Currently used youtube-dl.exe hash in SHA-256-delimited format</value>
-        [DataMember(Name = "player-url-resolver-hash", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "player-url-resolver-hash", EmitDefaultValue = false)]
         public string PlayerUrlResolverHash { get; set; }
 
         /// <summary>
         /// Currently used youtube-dl.exe version
         /// </summary>
         /// <value>Currently used youtube-dl.exe version</value>
-        [DataMember(Name = "player-url-resolver-version", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "player-url-resolver-version", EmitDefaultValue = false)]
         public string PlayerUrlResolverVersion { get; set; }
 
         /// <summary>

@@ -35,132 +35,73 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ReleaseStatus
         /// </summary>
-        [DataMember(Name = "releaseStatus", IsRequired = true, EmitDefaultValue = true)]
-        public ReleaseStatus ReleaseStatus { get; set; }
+        [DataMember(Name = "releaseStatus", EmitDefaultValue = false)]
+        public ReleaseStatus? ReleaseStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="World" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected World() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="World" /> class.
-        /// </summary>
-        /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="authorName">authorName (required).</param>
-        /// <param name="capacity">capacity (required).</param>
-        /// <param name="recommendedCapacity">recommendedCapacity (required).</param>
-        /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="description">description (required).</param>
+        /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="authorName">authorName.</param>
+        /// <param name="capacity">capacity.</param>
+        /// <param name="recommendedCapacity">recommendedCapacity.</param>
+        /// <param name="createdAt">createdAt.</param>
+        /// <param name="description">description.</param>
         /// <param name="favorites">favorites (default to 0).</param>
-        /// <param name="featured">featured (required) (default to false).</param>
-        /// <param name="heat">heat (required) (default to 0).</param>
-        /// <param name="id">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        /// <param name="imageUrl">imageUrl (required).</param>
+        /// <param name="featured">featured (default to false).</param>
+        /// <param name="heat">heat (default to 0).</param>
+        /// <param name="id">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
+        /// <param name="imageUrl">imageUrl.</param>
         /// <param name="instances">Will always be an empty list when unauthenticated..</param>
-        /// <param name="labsPublicationDate">labsPublicationDate (required).</param>
-        /// <param name="name">name (required).</param>
+        /// <param name="labsPublicationDate">labsPublicationDate.</param>
+        /// <param name="name">name.</param>
         /// <param name="_namespace">_namespace.</param>
         /// <param name="occupants">Will always be &#x60;0&#x60; when unauthenticated. (default to 0).</param>
-        /// <param name="organization">organization (required) (default to &quot;vrchat&quot;).</param>
-        /// <param name="popularity">popularity (required) (default to 0).</param>
+        /// <param name="organization">organization (default to &quot;vrchat&quot;).</param>
+        /// <param name="popularity">popularity (default to 0).</param>
         /// <param name="previewYoutubeId">previewYoutubeId.</param>
         /// <param name="privateOccupants">Will always be &#x60;0&#x60; when unauthenticated. (default to 0).</param>
         /// <param name="publicOccupants">Will always be &#x60;0&#x60; when unauthenticated. (default to 0).</param>
-        /// <param name="publicationDate">publicationDate (required).</param>
-        /// <param name="releaseStatus">releaseStatus (required).</param>
-        /// <param name="tags">  (required).</param>
-        /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
+        /// <param name="publicationDate">publicationDate.</param>
+        /// <param name="releaseStatus">releaseStatus.</param>
+        /// <param name="tags"> .</param>
+        /// <param name="thumbnailImageUrl">thumbnailImageUrl.</param>
         /// <param name="unityPackages">Empty if unauthenticated..</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
-        /// <param name="version">version (required) (default to 0).</param>
-        /// <param name="visits">visits (required) (default to 0).</param>
+        /// <param name="updatedAt">updatedAt.</param>
+        /// <param name="version">version (default to 0).</param>
+        /// <param name="visits">visits (default to 0).</param>
         /// <param name="udonProducts">udonProducts.</param>
-        public World(string authorId = default(string), string authorName = default(string), int capacity = default(int), int recommendedCapacity = default(int), DateTime createdAt = default(DateTime), string description = default(string), int favorites = 0, bool featured = false, int heat = 0, string id = default(string), string imageUrl = default(string), List<List<Object>> instances = default(List<List<Object>>), string labsPublicationDate = default(string), string name = default(string), string _namespace = default(string), int occupants = 0, string organization = "vrchat", int popularity = 0, string previewYoutubeId = default(string), int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default(string), ReleaseStatus releaseStatus = default(ReleaseStatus), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), int version = 0, int visits = 0, List<string> udonProducts = default(List<string>))
+        public World(string authorId = default(string), string authorName = default(string), int capacity = default(int), int recommendedCapacity = default(int), DateTime createdAt = default(DateTime), string description = default(string), int favorites = 0, bool featured = false, int heat = 0, string id = default(string), string imageUrl = default(string), List<List<Object>> instances = default(List<List<Object>>), string labsPublicationDate = default(string), string name = default(string), string _namespace = default(string), int occupants = 0, string organization = "vrchat", int popularity = 0, string previewYoutubeId = default(string), int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), int version = 0, int visits = 0, List<string> udonProducts = default(List<string>))
         {
-            // to ensure "authorId" is required (not null)
-            if (authorId == null)
-            {
-                throw new ArgumentNullException("authorId is a required property for World and cannot be null");
-            }
             this.AuthorId = authorId;
-            // to ensure "authorName" is required (not null)
-            if (authorName == null)
-            {
-                throw new ArgumentNullException("authorName is a required property for World and cannot be null");
-            }
             this.AuthorName = authorName;
             this.Capacity = capacity;
             this.RecommendedCapacity = recommendedCapacity;
             this.CreatedAt = createdAt;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for World and cannot be null");
-            }
             this.Description = description;
+            this.Favorites = favorites;
             this.Featured = featured;
             this.Heat = heat;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for World and cannot be null");
-            }
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for World and cannot be null");
-            }
             this.ImageUrl = imageUrl;
-            // to ensure "labsPublicationDate" is required (not null)
-            if (labsPublicationDate == null)
-            {
-                throw new ArgumentNullException("labsPublicationDate is a required property for World and cannot be null");
-            }
-            this.LabsPublicationDate = labsPublicationDate;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for World and cannot be null");
-            }
-            this.Name = name;
-            // to ensure "organization" is required (not null)
-            if (organization == null)
-            {
-                throw new ArgumentNullException("organization is a required property for World and cannot be null");
-            }
-            this.Organization = organization;
-            this.Popularity = popularity;
-            // to ensure "publicationDate" is required (not null)
-            if (publicationDate == null)
-            {
-                throw new ArgumentNullException("publicationDate is a required property for World and cannot be null");
-            }
-            this.PublicationDate = publicationDate;
-            this.ReleaseStatus = releaseStatus;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for World and cannot be null");
-            }
-            this.Tags = tags;
-            // to ensure "thumbnailImageUrl" is required (not null)
-            if (thumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("thumbnailImageUrl is a required property for World and cannot be null");
-            }
-            this.ThumbnailImageUrl = thumbnailImageUrl;
-            this.UpdatedAt = updatedAt;
-            this._Version = version;
-            this.Visits = visits;
-            this.Favorites = favorites;
             this.Instances = instances;
+            this.LabsPublicationDate = labsPublicationDate;
+            this.Name = name;
             this.Namespace = _namespace;
             this.Occupants = occupants;
+            // use default value if no "organization" provided
+            this.Organization = organization ?? "vrchat";
+            this.Popularity = popularity;
             this.PreviewYoutubeId = previewYoutubeId;
             this.PrivateOccupants = privateOccupants;
             this.PublicOccupants = publicOccupants;
+            this.PublicationDate = publicationDate;
+            this.ReleaseStatus = releaseStatus;
+            this.Tags = tags;
+            this.ThumbnailImageUrl = thumbnailImageUrl;
             this.UnityPackages = unityPackages;
+            this.UpdatedAt = updatedAt;
+            this._Version = version;
+            this.Visits = visits;
             this.UdonProducts = udonProducts;
         }
 
@@ -168,37 +109,37 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "authorId", EmitDefaultValue = false)]
         public string AuthorId { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthorName
         /// </summary>
-        [DataMember(Name = "authorName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "authorName", EmitDefaultValue = false)]
         public string AuthorName { get; set; }
 
         /// <summary>
         /// Gets or Sets Capacity
         /// </summary>
-        [DataMember(Name = "capacity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "capacity", EmitDefaultValue = false)]
         public int Capacity { get; set; }
 
         /// <summary>
         /// Gets or Sets RecommendedCapacity
         /// </summary>
-        [DataMember(Name = "recommendedCapacity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "recommendedCapacity", EmitDefaultValue = false)]
         public int RecommendedCapacity { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "created_at", EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
@@ -210,26 +151,26 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Featured
         /// </summary>
-        [DataMember(Name = "featured", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "featured", EmitDefaultValue = true)]
         public bool Featured { get; set; }
 
         /// <summary>
         /// Gets or Sets Heat
         /// </summary>
-        [DataMember(Name = "heat", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "heat", EmitDefaultValue = false)]
         public int Heat { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
-        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "imageUrl", EmitDefaultValue = false)]
         public string ImageUrl { get; set; }
 
         /// <summary>
@@ -242,13 +183,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets LabsPublicationDate
         /// </summary>
-        [DataMember(Name = "labsPublicationDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "labsPublicationDate", EmitDefaultValue = false)]
         public string LabsPublicationDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -267,13 +208,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Organization
         /// </summary>
-        [DataMember(Name = "organization", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "organization", EmitDefaultValue = false)]
         public string Organization { get; set; }
 
         /// <summary>
         /// Gets or Sets Popularity
         /// </summary>
-        [DataMember(Name = "popularity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "popularity", EmitDefaultValue = false)]
         public int Popularity { get; set; }
 
         /// <summary>
@@ -299,20 +240,20 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PublicationDate
         /// </summary>
-        [DataMember(Name = "publicationDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "publicationDate", EmitDefaultValue = false)]
         public string PublicationDate { get; set; }
 
         /// <summary>
         ///  
         /// </summary>
         /// <value> </value>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// Gets or Sets ThumbnailImageUrl
         /// </summary>
-        [DataMember(Name = "thumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "thumbnailImageUrl", EmitDefaultValue = false)]
         public string ThumbnailImageUrl { get; set; }
 
         /// <summary>
@@ -325,19 +266,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updated_at", EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
         /// </summary>
-        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "version", EmitDefaultValue = false)]
         public int _Version { get; set; }
 
         /// <summary>
         /// Gets or Sets Visits
         /// </summary>
-        [DataMember(Name = "visits", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "visits", EmitDefaultValue = false)]
         public int Visits { get; set; }
 
         /// <summary>

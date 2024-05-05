@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AssignedAt** | **DateTime?** | only present in CurrentUser badges | [optional] 
-**BadgeDescription** | **string** |  | 
-**BadgeId** | **string** |  | 
-**BadgeImageUrl** | **string** | direct url to image | 
-**BadgeName** | **string** |  | 
+**BadgeDescription** | **string** |  | [optional] 
+**BadgeId** | **string** |  | [optional] 
+**BadgeImageUrl** | **string** | direct url to image | [optional] 
+**BadgeName** | **string** |  | [optional] 
 **Hidden** | **bool?** | only present in CurrentUser badges | [optional] 
-**Showcased** | **bool** |  | 
+**Showcased** | **bool** |  | [optional] 
 **UpdatedAt** | **DateTime?** | only present in CurrentUser badges | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

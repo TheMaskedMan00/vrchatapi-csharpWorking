@@ -34,13 +34,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InstancePlatforms" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InstancePlatforms() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InstancePlatforms" /> class.
-        /// </summary>
-        /// <param name="android">android (required).</param>
-        /// <param name="standalonewindows">standalonewindows (required).</param>
+        /// <param name="android">android.</param>
+        /// <param name="standalonewindows">standalonewindows.</param>
         public InstancePlatforms(int android = default(int), int standalonewindows = default(int))
         {
             this.Android = android;
@@ -50,13 +45,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Android
         /// </summary>
-        [DataMember(Name = "android", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "android", EmitDefaultValue = false)]
         public int Android { get; set; }
 
         /// <summary>
         /// Gets or Sets Standalonewindows
         /// </summary>
-        [DataMember(Name = "standalonewindows", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "standalonewindows", EmitDefaultValue = false)]
         public int Standalonewindows { get; set; }
 
         /// <summary>

@@ -34,26 +34,11 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LimitedUnityPackage" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected LimitedUnityPackage() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LimitedUnityPackage" /> class.
-        /// </summary>
-        /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
-        /// <param name="unityVersion">unityVersion (required).</param>
+        /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
+        /// <param name="unityVersion">unityVersion.</param>
         public LimitedUnityPackage(string platform = default(string), string unityVersion = default(string))
         {
-            // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
-                throw new ArgumentNullException("platform is a required property for LimitedUnityPackage and cannot be null");
-            }
             this.Platform = platform;
-            // to ensure "unityVersion" is required (not null)
-            if (unityVersion == null)
-            {
-                throw new ArgumentNullException("unityVersion is a required property for LimitedUnityPackage and cannot be null");
-            }
             this.UnityVersion = unityVersion;
         }
 
@@ -61,13 +46,13 @@ namespace VRChat.API.Model
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
         /// <summary>
         /// Gets or Sets UnityVersion
         /// </summary>
-        [DataMember(Name = "unityVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "unityVersion", EmitDefaultValue = false)]
         public string UnityVersion { get; set; }
 
         /// <summary>

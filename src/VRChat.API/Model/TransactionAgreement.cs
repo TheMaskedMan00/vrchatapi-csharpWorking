@@ -34,92 +34,37 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionAgreement" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TransactionAgreement() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionAgreement" /> class.
-        /// </summary>
-        /// <param name="agreementId">agreementId (required).</param>
-        /// <param name="itemId">itemId (required).</param>
-        /// <param name="status">This is NOT TransactionStatus, but whatever Steam return. (required).</param>
-        /// <param name="period">period (required).</param>
-        /// <param name="frequency">frequency (required).</param>
-        /// <param name="billingType">billingType (required).</param>
-        /// <param name="startDate">startDate (required).</param>
-        /// <param name="endDate">endDate (required).</param>
-        /// <param name="recurringAmt">recurringAmt (required).</param>
-        /// <param name="currency">currency (required).</param>
-        /// <param name="timeCreated">timeCreated (required).</param>
-        /// <param name="nextPayment">nextPayment (required).</param>
-        /// <param name="lastPayment">lastPayment (required).</param>
-        /// <param name="lastAmount">lastAmount (required).</param>
-        /// <param name="lastAmountVat">lastAmountVat (required).</param>
-        /// <param name="outstanding">outstanding (required).</param>
-        /// <param name="failedAttempts">failedAttempts (required).</param>
+        /// <param name="agreementId">agreementId.</param>
+        /// <param name="itemId">itemId.</param>
+        /// <param name="status">This is NOT TransactionStatus, but whatever Steam return..</param>
+        /// <param name="period">period.</param>
+        /// <param name="frequency">frequency.</param>
+        /// <param name="billingType">billingType.</param>
+        /// <param name="startDate">startDate.</param>
+        /// <param name="endDate">endDate.</param>
+        /// <param name="recurringAmt">recurringAmt.</param>
+        /// <param name="currency">currency.</param>
+        /// <param name="timeCreated">timeCreated.</param>
+        /// <param name="nextPayment">nextPayment.</param>
+        /// <param name="lastPayment">lastPayment.</param>
+        /// <param name="lastAmount">lastAmount.</param>
+        /// <param name="lastAmountVat">lastAmountVat.</param>
+        /// <param name="outstanding">outstanding.</param>
+        /// <param name="failedAttempts">failedAttempts.</param>
         public TransactionAgreement(string agreementId = default(string), decimal itemId = default(decimal), string status = default(string), string period = default(string), decimal frequency = default(decimal), string billingType = default(string), string startDate = default(string), string endDate = default(string), decimal recurringAmt = default(decimal), string currency = default(string), string timeCreated = default(string), string nextPayment = default(string), string lastPayment = default(string), decimal lastAmount = default(decimal), decimal lastAmountVat = default(decimal), decimal outstanding = default(decimal), decimal failedAttempts = default(decimal))
         {
-            // to ensure "agreementId" is required (not null)
-            if (agreementId == null)
-            {
-                throw new ArgumentNullException("agreementId is a required property for TransactionAgreement and cannot be null");
-            }
             this.AgreementId = agreementId;
             this.ItemId = itemId;
-            // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new ArgumentNullException("status is a required property for TransactionAgreement and cannot be null");
-            }
             this.Status = status;
-            // to ensure "period" is required (not null)
-            if (period == null)
-            {
-                throw new ArgumentNullException("period is a required property for TransactionAgreement and cannot be null");
-            }
             this.Period = period;
             this.Frequency = frequency;
-            // to ensure "billingType" is required (not null)
-            if (billingType == null)
-            {
-                throw new ArgumentNullException("billingType is a required property for TransactionAgreement and cannot be null");
-            }
             this.BillingType = billingType;
-            // to ensure "startDate" is required (not null)
-            if (startDate == null)
-            {
-                throw new ArgumentNullException("startDate is a required property for TransactionAgreement and cannot be null");
-            }
             this.StartDate = startDate;
-            // to ensure "endDate" is required (not null)
-            if (endDate == null)
-            {
-                throw new ArgumentNullException("endDate is a required property for TransactionAgreement and cannot be null");
-            }
             this.EndDate = endDate;
             this.RecurringAmt = recurringAmt;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for TransactionAgreement and cannot be null");
-            }
             this.Currency = currency;
-            // to ensure "timeCreated" is required (not null)
-            if (timeCreated == null)
-            {
-                throw new ArgumentNullException("timeCreated is a required property for TransactionAgreement and cannot be null");
-            }
             this.TimeCreated = timeCreated;
-            // to ensure "nextPayment" is required (not null)
-            if (nextPayment == null)
-            {
-                throw new ArgumentNullException("nextPayment is a required property for TransactionAgreement and cannot be null");
-            }
             this.NextPayment = nextPayment;
-            // to ensure "lastPayment" is required (not null)
-            if (lastPayment == null)
-            {
-                throw new ArgumentNullException("lastPayment is a required property for TransactionAgreement and cannot be null");
-            }
             this.LastPayment = lastPayment;
             this.LastAmount = lastAmount;
             this.LastAmountVat = lastAmountVat;
@@ -130,104 +75,104 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AgreementId
         /// </summary>
-        [DataMember(Name = "agreementId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "agreementId", EmitDefaultValue = false)]
         public string AgreementId { get; set; }
 
         /// <summary>
         /// Gets or Sets ItemId
         /// </summary>
-        [DataMember(Name = "itemId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "itemId", EmitDefaultValue = false)]
         public decimal ItemId { get; set; }
 
         /// <summary>
         /// This is NOT TransactionStatus, but whatever Steam return.
         /// </summary>
         /// <value>This is NOT TransactionStatus, but whatever Steam return.</value>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Period
         /// </summary>
-        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "period", EmitDefaultValue = false)]
         public string Period { get; set; }
 
         /// <summary>
         /// Gets or Sets Frequency
         /// </summary>
-        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "frequency", EmitDefaultValue = false)]
         public decimal Frequency { get; set; }
 
         /// <summary>
         /// Gets or Sets BillingType
         /// </summary>
-        [DataMember(Name = "billingType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "billingType", EmitDefaultValue = false)]
         public string BillingType { get; set; }
 
         /// <summary>
         /// Gets or Sets StartDate
         /// </summary>
-        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "startDate", EmitDefaultValue = false)]
         public string StartDate { get; set; }
 
         /// <summary>
         /// Gets or Sets EndDate
         /// </summary>
-        [DataMember(Name = "endDate", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "endDate", EmitDefaultValue = false)]
         public string EndDate { get; set; }
 
         /// <summary>
         /// Gets or Sets RecurringAmt
         /// </summary>
-        [DataMember(Name = "recurringAmt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "recurringAmt", EmitDefaultValue = false)]
         public decimal RecurringAmt { get; set; }
 
         /// <summary>
         /// Gets or Sets Currency
         /// </summary>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeCreated
         /// </summary>
-        [DataMember(Name = "timeCreated", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "timeCreated", EmitDefaultValue = false)]
         public string TimeCreated { get; set; }
 
         /// <summary>
         /// Gets or Sets NextPayment
         /// </summary>
-        [DataMember(Name = "nextPayment", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nextPayment", EmitDefaultValue = false)]
         public string NextPayment { get; set; }
 
         /// <summary>
         /// Gets or Sets LastPayment
         /// </summary>
-        [DataMember(Name = "lastPayment", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "lastPayment", EmitDefaultValue = false)]
         public string LastPayment { get; set; }
 
         /// <summary>
         /// Gets or Sets LastAmount
         /// </summary>
-        [DataMember(Name = "lastAmount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "lastAmount", EmitDefaultValue = false)]
         public decimal LastAmount { get; set; }
 
         /// <summary>
         /// Gets or Sets LastAmountVat
         /// </summary>
-        [DataMember(Name = "lastAmountVat", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "lastAmountVat", EmitDefaultValue = false)]
         public decimal LastAmountVat { get; set; }
 
         /// <summary>
         /// Gets or Sets Outstanding
         /// </summary>
-        [DataMember(Name = "outstanding", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "outstanding", EmitDefaultValue = false)]
         public decimal Outstanding { get; set; }
 
         /// <summary>
         /// Gets or Sets FailedAttempts
         /// </summary>
-        [DataMember(Name = "failedAttempts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "failedAttempts", EmitDefaultValue = false)]
         public decimal FailedAttempts { get; set; }
 
         /// <summary>

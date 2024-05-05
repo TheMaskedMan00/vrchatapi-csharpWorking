@@ -34,20 +34,10 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InstanceShortNameResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InstanceShortNameResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InstanceShortNameResponse" /> class.
-        /// </summary>
-        /// <param name="secureName">secureName (required).</param>
+        /// <param name="secureName">secureName.</param>
         /// <param name="shortName">shortName.</param>
         public InstanceShortNameResponse(string secureName = default(string), string shortName = default(string))
         {
-            // to ensure "secureName" is required (not null)
-            if (secureName == null)
-            {
-                throw new ArgumentNullException("secureName is a required property for InstanceShortNameResponse and cannot be null");
-            }
             this.SecureName = secureName;
             this.ShortName = shortName;
         }
@@ -55,7 +45,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets SecureName
         /// </summary>
-        [DataMember(Name = "secureName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "secureName", EmitDefaultValue = false)]
         public string SecureName { get; set; }
 
         /// <summary>

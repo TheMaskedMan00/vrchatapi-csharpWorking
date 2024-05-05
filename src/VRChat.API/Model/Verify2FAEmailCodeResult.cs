@@ -34,12 +34,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Verify2FAEmailCodeResult" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Verify2FAEmailCodeResult() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Verify2FAEmailCodeResult" /> class.
-        /// </summary>
-        /// <param name="verified">verified (required).</param>
+        /// <param name="verified">verified.</param>
         public Verify2FAEmailCodeResult(bool verified = default(bool))
         {
             this.Verified = verified;
@@ -48,7 +43,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Verified
         /// </summary>
-        [DataMember(Name = "verified", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "verified", EmitDefaultValue = true)]
         public bool Verified { get; set; }
 
         /// <summary>

@@ -34,12 +34,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserExists" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UserExists() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UserExists" /> class.
-        /// </summary>
-        /// <param name="userExists">Status if a user exist with that username or userId. (required) (default to false).</param>
+        /// <param name="userExists">Status if a user exist with that username or userId. (default to false).</param>
         public UserExists(bool userExists = false)
         {
             this._UserExists = userExists;
@@ -49,7 +44,7 @@ namespace VRChat.API.Model
         /// Status if a user exist with that username or userId.
         /// </summary>
         /// <value>Status if a user exist with that username or userId.</value>
-        [DataMember(Name = "userExists", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userExists", EmitDefaultValue = true)]
         public bool _UserExists { get; set; }
 
         /// <summary>
