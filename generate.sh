@@ -4,7 +4,7 @@ npm install @openapitools/openapi-generator-cli
 
 rm src docs *.nupkg *.snupkg -rf
 
-curl https://raw.githubusercontent.com/TheMaskedMan00/specification/gh-pages/openapi.yaml
+curl https://raw.githubusercontent.com/TheMaskedMan00/specification/gh-pages/openapi.yaml --output openapi.yaml
 
 SPEC_VERSION=`grep "^  version:" openapi.yaml | cut -d " " -f 4`
 
